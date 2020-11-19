@@ -1,0 +1,16 @@
+<form class="quick-search" data-quick-search aria-hidden="true">
+  <div class="quick-search__container container">
+    <button class="quick-search__close" data-quick-search-close>
+      {% render 'icon', name: 'close' iconClass: 'quick-search-close__icon' %}
+    </button>
+    <input class="quick-search__input" type="text" name="quick-search" id="quick-search" data-quick-search-input>
+    <ul class="quick-search__results list-reset">
+      <div class="quick-search-results__inner" data-quick-search-results>
+
+      </div>
+      <div class="quick-search-results__view-all" data-quick-search-view-all style="display: none;">
+        <button class="quick-search-results-view-all__button" type="submit">View All</button>
+      </div>
+    </ul>
+  </div>
+</form>

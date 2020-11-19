@@ -1,0 +1,38 @@
+.product-card {
+  display: block;
+  padding: 1rem;
+
+  text-decoration: none;
+
+  border: 1px solid transparent;
+  @include transition;
+}
+
+.product-card:hover,
+.product-card:focus {
+  border: 1px solid var(--color-gray-light);
+}
+
+.product-card > * + * {
+  margin-top: 1rem;
+}
+
+.product-card__image {
+  padding-top: 100%;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.product-card__title {
+  color: var(--text-color);
+  text-transform: capitalize;
+}
+
+.product-card__price {
+  color: var(--text-color);
+
+  font-family: var(--header-font);
+  font-size: 1.25em;
+}

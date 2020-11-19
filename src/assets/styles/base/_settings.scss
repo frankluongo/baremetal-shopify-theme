@@ -1,0 +1,17 @@
+$setting-alignment-options: (flex-start, flex-end, center, baseline, stretch);
+$setting-default-transition-speed: 150ms;
+$setting-drop-shadow-color: rgba(0, 0, 0, 0.15);
+$setting-justification-options: (
+  flex-start,
+  flex-end,
+  center,
+  space-between,
+  space-around,
+  space-evenly
+);
+$setting-max-size-decrement: 1;
+$setting-max-spacer-value: 8;
+$setting-spacer-directions: (top, left, bottom, right);
+$setting-text-align-options: (center, left, right);
+$setting-text-case-options: (lowercase, uppercase, capitalize);
+$setting-text-weights: (300, 400, 500, 700);

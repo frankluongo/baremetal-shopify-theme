@@ -1,0 +1,9 @@
+{{ 'application.css' | asset_url | stylesheet_tag }}
+{{ 'application.js' | asset_url | script_tag }}
+{% if template == 'index' %}
+  {{ 'index.js' | asset_url | script_tag }}
+{% endif %}
+{% if template == 'cart' %}
+  {{ 'cart.css' | asset_url | stylesheet_tag }}
+  {{ 'cart.js' | asset_url | script_tag }}
+{% endif %}

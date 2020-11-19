@@ -1,0 +1,10 @@
+{% capture fontsString %}
+{{ settings.typePrimary | font_face: font_display: 'swap' }}||||{{ settings.typeSecondary | font_face: font_display: 'swap' }}||||{{ settings.typeTertiary | font_face: font_display: 'swap' }}
+{% endcapture %}
+{% assign fontsArray = fontsString | split: '||||' | uniq %}
+
+{% style %}
+  {% for url in fontsArray %}
+    {{ url }}
+  {% endfor %}
+{% endstyle %}

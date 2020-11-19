@@ -1,0 +1,12 @@
+{% if useLogo and settings[logoType] %}
+  <a href="/" class="logo {{ logoClass }}" title="{{ shop.name }}">
+    <img
+      class="logo__image"
+      src="{{ settings[logoType] | img_url: '480x'  }}"
+      alt="{{ shop.name }}"
+      style="max-width: {{ logoSize }}px;"
+      width="{{ logoSize }}"
+      height="{{ logoSize | divided_by: settings[logoType].aspect_ratio }}"
+    >
+  </a>
+{% endif %}

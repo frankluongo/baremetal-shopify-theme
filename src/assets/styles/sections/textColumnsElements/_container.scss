@@ -1,0 +1,10 @@
+.text-columns__container {
+  align-items: center;
+  display: flex;
+}
+
+@include media(639px, max-width) {
+  .text-columns__container {
+    flex-wrap: wrap;
+  }
+}

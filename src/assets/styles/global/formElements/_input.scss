@@ -1,0 +1,14 @@
+input {
+  border: 1px solid var(--color-gray-light);
+  border-radius: 0.125rem;
+
+  font-family: var(--ui-font);
+}
+
+.form__input {
+  display: block;
+  padding: 0.25rem 1rem;
+  min-height: 3rem;
+
+  font-size: 1rem;
+}

@@ -1,0 +1,28 @@
+.email-signup__header {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.email-signup__heading,
+.email-signup__subtitle {
+  color: var(--text-color);
+}
+
+.email-signup__subtitle {
+  max-width: none;
+}
+
+.email-signup__header--above-header .email-signup__subtitle {
+  order: -1;
+}
+
+.email-signup__rule {
+  height: 0.25rem;
+  max-width: 8rem;
+  @include block-spacing(margin, 1rem);
+  @include inline-spacing(margin, auto);
+
+  background-color: var(--text-color);
+}

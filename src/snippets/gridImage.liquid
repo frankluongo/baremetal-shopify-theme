@@ -1,0 +1,17 @@
+<div
+  class="image-grid__image grid-image grid-image--text-{{ textPosition }}"
+  data-index="{{ index }}"
+>
+  <figure
+    class="grid-image__image"
+    data-lazy-bg
+    data-src="{{ gridImage.image | img_url: '1024x', format: 'pjpg'  }}"
+  ></figure>
+  <div class="grid-image__text grid-image__text--subheading-{{ gridImage.subheadPost }} grid-image__text--color-{{ gridImage.textColor }}">
+    <h3 class="grid-image-text__heading">{{ gridImage.header }}</h3>
+    <p class="grid-image-text__subheading">{{ gridImage.subheading }}</p>
+    {% unless gridImage.linkText == blank or gridImage.link == blank %}
+      <a class="button grid-image-text__button" href="{{ gridImage.link }}">{{ gridImage.linkText }}</a>
+    {% endunless %}
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.mm__mobile-items {
+  padding: 0;
+}
+
+@include media(1280px) {
+  .mm__mobile-items {
+    display: none;
+  }
+}

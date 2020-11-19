@@ -1,0 +1,23 @@
+form {
+  div {
+    label {
+      display: block;
+    }
+
+    input,
+    textarea {
+      display: block;
+      width: 100%;
+      min-height: 2rem;
+    }
+
+    input[type="checkbox"],
+    input[type="radio"] {
+      display: inline-block;
+      min-height: auto;
+      width: auto;
+    }
+  }
+}
+
+@import "./formElements";

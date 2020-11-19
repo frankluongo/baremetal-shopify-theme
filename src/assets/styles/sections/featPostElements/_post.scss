@@ -1,0 +1,14 @@
+.featured-posts__post {
+  color: var(--text-color);
+  text-align: center;
+  text-decoration: none;
+}
+
+.featured-post__image {
+  margin-bottom: 1rem;
+  padding-top: 100%;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

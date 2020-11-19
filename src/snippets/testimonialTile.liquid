@@ -1,0 +1,22 @@
+<article class="testimonial__tile">
+  <div class="testimonial-tile__content">
+    {% unless image == blank %}
+      <figure
+        aria-hidden="true"
+        class="testimonial-tile__image"
+        data-lazy-bg
+        data-src=" {{ image | img_url: '140x140', crop: 'center' }}"
+        alt="{{ author | escape }}"
+      ></figure>
+    {% endunless %}
+
+    <div class="testimonial-tile__text">
+      <blockquote class="tile__blockquote">
+        {{ quote }}
+        {% unless author == blank %}
+          <footer class="testimonial-tile__author">{{ author | escape }}</footer>
+        {% endunless %}
+      </blockquote>
+    </div>
+  </div>
+</article>

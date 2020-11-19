@@ -1,0 +1,722 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "BareMetal",
+    "theme_author": "Frank Luongo",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://frankluongo.com",
+    "theme_support_email": "frank@frankluongo.com"
+  },
+  {
+    "name": "Appearance",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "brandLogoDark",
+        "label": "Company Logo (for use on light backgrounds)"
+      },
+      {
+        "type": "image_picker",
+        "id": "brandLogoLight",
+        "label": "Company Logo (for use on dark backgrounds)"
+      },
+      {
+        "type": "range",
+        "id": "maxContentWidth",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Maximum Content Width",
+        "default": 90
+      },
+      {
+        "type": "checkbox",
+        "id": "useMaxTextWidth",
+        "label": "Maximum Text Width",
+        "default": true,
+        "info": "Enabling this will force paragraphs to wrap after a certain width. This is recommended to make reading easier for your users"
+      },
+      {
+        "type": "range",
+        "id": "maxTextWidth",
+        "min": 0,
+        "max": 100,
+        "step": 1,
+        "label": "Maximum Text Width (ems)",
+        "default": 58
+      },
+      {
+        "type": "number",
+        "id": "transitionSpeed",
+        "label": "Default Animation Speed (ms)",
+        "default": 150
+      }
+    ]
+  },
+  {
+    "name": "Business Details",
+    "settings": [
+      {
+        "type": "text",
+        "id": "addressName",
+        "label": "Company Address Name"
+      },
+      {
+        "type": "textarea",
+        "id": "address",
+        "label": "Company Address"
+      },
+      {
+        "type": "text",
+        "id": "emailAddress",
+        "label": "Company Email Address"
+      },
+      {
+        "type": "text",
+        "id": "phoneNumber",
+        "label": "Company Phone Number"
+      }
+    ]
+  },
+  {
+    "name": "Color Palette",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Brand Colors"
+      },
+      {
+        "type": "color",
+        "id": "colorPrimary",
+        "label": "Primary",
+        "default": "#333333",
+        "info": "Primary Brand color"
+      },
+      {
+        "type": "color",
+        "id": "colorSecondary",
+        "label": "Secondary",
+        "default": "#333333",
+        "info": "Secondary Brand Color"
+      },
+      {
+        "type": "color",
+        "id": "colorTertiary",
+        "label": "Tertiary",
+        "default": "#333333",
+        "info": "Tertiary Brand Color"
+      },
+      {
+        "type": "header",
+        "content": "Grayscale"
+      },
+      {
+        "type": "color",
+        "id": "colorWhite",
+        "label": "White",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "colorGrayLight",
+        "label": "Light Gray",
+        "default": "#eeeeee"
+      },
+      {
+        "type": "color",
+        "id": "colorGrayMedium",
+        "label": "Medium Gray",
+        "default": "#aaaaaa"
+      },
+      {
+        "type": "color",
+        "id": "colorGrayDark",
+        "label": "Dark Gray",
+        "default": "#555555"
+      },
+      {
+        "type": "color",
+        "id": "colorBlack",
+        "label": "Black",
+        "default": "#333333"
+      }
+    ]
+  },
+  {
+    "name": "Colors In Use",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Buttons"
+      },
+      {
+        "type": "select",
+        "id": "bgBtn",
+        "label": "Button Background Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ]
+      },
+      {
+        "type": "select",
+        "id": "textColorBtn",
+        "label": "Button Text Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Links"
+      },
+      {
+        "type": "select",
+        "id": "linkTextColor",
+        "label": "Link Text Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ],
+        "default": "color-primary"
+      },
+      {
+        "type": "header",
+        "content": "Tables"
+      },
+      {
+        "type": "select",
+        "id": "borderTable",
+        "label": "Table Border Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ],
+        "default": "color-gray-light"
+      },
+      {
+        "type": "select",
+        "id": "bgTable",
+        "label": "Table Background Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ],
+        "default": "color-white"
+      },
+      {
+        "type": "select",
+        "id": "textColorTable",
+        "label": "Table Text Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "typePrimary",
+        "label": "Primary Font",
+        "default": "rubik_n4",
+        "info": "Default usage is for body copy."
+      },
+      {
+        "type": "font_picker",
+        "id": "typeSecondary",
+        "label": "Secondary Font",
+        "default": "playfair_display_n7",
+        "info": "Default usage is for header copy."
+      },
+      {
+        "type": "font_picker",
+        "id": "typeTertiary",
+        "label": "Tertiary Font",
+        "default": "crimson_text_n4",
+        "info": "Default usage is for the user interface elements like buttons and non-body copy."
+      },
+      {
+        "type": "header",
+        "content": "Headings"
+      },
+      {
+        "type": "select",
+        "id": "headerType",
+        "label": "Header Font",
+        "options": [
+          {
+            "value": "type-primary",
+            "label": "Primary Font"
+          },
+          {
+            "value": "type-secondary",
+            "label": "Secondary Font"
+          },
+          {
+            "value": "type-tertiary",
+            "label": "Tertiary Font"
+          }
+        ],
+        "default": "type-secondary"
+      },
+      {
+        "type": "select",
+        "id": "headerWeight",
+        "label": "Header Font Weight",
+        "options": [
+          {
+            "value": "lighter",
+            "label": "Lighter"
+          },
+          {
+            "value": "inherit",
+            "label": "Default"
+          },
+          {
+            "value": "bolder",
+            "label": "Bolder"
+          }
+        ],
+        "default": "inherit",
+        "info": "This setting will only apply if the value selected is available."
+      },
+      {
+        "type": "select",
+        "id": "headerTextTransform",
+        "label": "Header Text Transform",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          }
+        ],
+        "default": "none"
+      },
+      {
+        "type": "text",
+        "id": "headerLineHeight",
+        "label": "Header Line Height",
+        "default": "1.15"
+      },
+      {
+        "type": "range",
+        "id": "headerLetterspacing",
+        "min": 0,
+        "max": 5,
+        "step": 1,
+        "label": "Header Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "header",
+        "content": "Body Text"
+      },
+      {
+        "type": "select",
+        "id": "bodyType",
+        "label": "Body Font",
+        "options": [
+          {
+            "value": "type-primary",
+            "label": "Primary Font"
+          },
+          {
+            "value": "type-secondary",
+            "label": "Secondary Font"
+          },
+          {
+            "value": "type-tertiary",
+            "label": "Tertiary Font"
+          }
+        ],
+        "default": "type-primary"
+      },
+      {
+        "type": "select",
+        "id": "bodyWeight",
+        "label": "Body Font Weight",
+        "options": [
+          {
+            "value": "lighter",
+            "label": "Lighter"
+          },
+          {
+            "value": "inherit",
+            "label": "Default"
+          },
+          {
+            "value": "bolder",
+            "label": "Bolder"
+          }
+        ],
+        "default": "inherit",
+        "info": "This setting will only apply if the value selected is available."
+      },
+      {
+        "type": "text",
+        "id": "bodyLineHeight",
+        "label": "Body Text Line Height",
+        "default": "1.6"
+      },
+      {
+        "type": "header",
+        "content": "User Interface"
+      },
+      {
+        "type": "select",
+        "id": "uiType",
+        "label": "User Interface Font",
+        "options": [
+          {
+            "value": "type-primary",
+            "label": "Primary Font"
+          },
+          {
+            "value": "type-secondary",
+            "label": "Secondary Font"
+          },
+          {
+            "value": "type-tertiary",
+            "label": "Tertiary Font"
+          }
+        ],
+        "default": "type-tertiary"
+      },
+      {
+        "type": "select",
+        "id": "uiWeight",
+        "label": "User Interface Font Weight",
+        "options": [
+          {
+            "value": "lighter",
+            "label": "Lighter"
+          },
+          {
+            "value": "inherit",
+            "label": "Default"
+          },
+          {
+            "value": "bolder",
+            "label": "Bolder"
+          }
+        ],
+        "default": "inherit",
+        "info": "This setting will only apply if the value selected is available."
+      },
+      {
+        "type": "select",
+        "id": "uiTextTransform",
+        "label": "User Interface Text Transform",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "lowercase",
+            "label": "Lowercase"
+          },
+          {
+            "value": "uppercase",
+            "label": "Uppercase"
+          },
+          {
+            "value": "capitalize",
+            "label": "Capitalize"
+          }
+        ]
+      },
+      {
+        "type": "range",
+        "id": "uiLetterspacing",
+        "min": 0,
+        "max": 5,
+        "step": 1,
+        "label": "User Interface Letterspacing",
+        "default": 0
+      },
+      {
+        "type": "text",
+        "id": "uiLineHeight",
+        "label": "UI Text Line Height",
+        "default": "1.25"
+      }
+    ]
+  },
+  {
+    "name": "Products",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "show_vendor",
+        "label": "Show vendor"
+      },
+      {
+        "type": "checkbox",
+        "id": "products_show_second_image_on_hover",
+        "label": "Show second image on hover",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Articles",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "showAuthor",
+        "label": "Show author",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "showDate",
+        "label": "Show Date",
+        "default": true
+      }
+    ]
+  },
+  {
+    "name": "Favicon",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Favicon"
+      },
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "16x16px .png (Recommended)"
+      }
+    ]
+  },
+  {
+    "name": "Dates Display",
+    "settings": [
+      {
+        "type": "select",
+        "id": "date_format",
+        "label": "Date format",
+        "info": "Date format for all article instances. Time Ago (e.g. 6 days ago) or Standard (e.g. 17th February 2017)",
+        "options": [
+          {
+            "value": "time_ago",
+            "label": "Time Ago"
+          },
+          {
+            "value": "standard",
+            "label": "Standard"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Cart page",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "cart_notes_enable",
+        "label": "Enable cart notes"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_vendor_enable",
+        "label": "Show product vendor"
+      },
+      {
+        "type": "select",
+        "id": "ajax_cart_method",
+        "label": "Cart type",
+        "options": [
+          {
+            "value": "drawer",
+            "label": "Drawer"
+          },
+          {
+            "value": "page",
+            "label": "Page"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Facebook"
+      },
+      {
+        "type": "checkbox",
+        "id": "showFacebook",
+        "label": "Show Facebook Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "facebook",
+        "label": "Company Facebook Link"
+      },
+      {
+        "type": "header",
+        "content": "Instagram"
+      },
+      {
+        "type": "checkbox",
+        "id": "showInstagram",
+        "label": "Show Instagram Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "instagram",
+        "label": "Company Instagram Link"
+      },
+      {
+        "type": "header",
+        "content": "Pinterest"
+      },
+      {
+        "type": "checkbox",
+        "id": "showPinterest",
+        "label": "Show Pinterest Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "pinterest",
+        "label": "Company Pinterest Link"
+      },
+      {
+        "type": "header",
+        "content": "Snapchat"
+      },
+      {
+        "type": "checkbox",
+        "id": "showSnapchat",
+        "label": "Show Snapchat Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "snapchat",
+        "label": "Company Snapchat Link"
+      },
+      {
+        "type": "header",
+        "content": "TripAdvisor"
+      },
+      {
+        "type": "checkbox",
+        "id": "showTripAdvisor",
+        "label": "Show TripAdvisor Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "tripadvisor",
+        "label": "Company TripAdvisor Link"
+      },
+      {
+        "type": "header",
+        "content": "Twitter"
+      },
+      {
+        "type": "checkbox",
+        "id": "showTwitter",
+        "label": "Show Twitter Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "twitter",
+        "label": "Company Twitter Link"
+      },
+      {
+        "type": "header",
+        "content": "Vimeo"
+      },
+      {
+        "type": "checkbox",
+        "id": "showVimeo",
+        "label": "Show Vimeo Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "vimeo",
+        "label": "Company Vimeo Link"
+      },
+      {
+        "type": "header",
+        "content": "YouTube"
+      },
+      {
+        "type": "checkbox",
+        "id": "showYouTube",
+        "label": "Show YouTube Link(s)",
+        "default": false
+      },
+      {
+        "type": "text",
+        "id": "youtube",
+        "label": "Company YouTube Link"
+      }
+    ]
+  }
+]

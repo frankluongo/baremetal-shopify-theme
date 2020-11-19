@@ -1,0 +1,43 @@
+.homepage-carousel {
+  width: 100%;
+  @include inline-spacing(margin, auto);
+  max-width: var(--carousel-width);
+}
+
+.homepage-carousel__wrapper {
+  position: relative;
+
+  margin-bottom: 2rem;
+}
+
+.homepage-carousel__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.homepage-carousel__panel {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+.homepage-carousel-panel__image {
+  min-height: var(--carousel-height-mobile);
+  padding-top: var(--carousel-padding-top-mobile);
+}
+
+@media (min-width: 900px) {
+  .homepage-carousel-panel__image {
+    min-height: var(--carousel-height-desktop);
+    padding-top: var(--carousel-padding-top-desktop);
+  }
+}
+
+@media (min-width: 1600px) {
+  .homepage-carousel-panel__image {
+    min-height: var(--carousel-height-xlarge-desktop);
+    padding-top: var(--carousel-padding-top-xlarge-desktop);
+  }
+}
+
+@import "./carouselElements";

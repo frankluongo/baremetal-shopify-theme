@@ -1,0 +1,138 @@
+.quick-search {
+  --search-height: 128px;
+  bottom: 0;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2;
+
+  height: 100vh;
+  width: 100%;
+
+  background-color: rgba(255, 255, 255, 0.6);
+  @include transition;
+}
+
+.quick-search[aria-hidden="true"] {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.quick-search:focus {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.quick-search__close {
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.quick-search__close:focus {
+  outline-color: var(--color-primary);
+}
+
+.quick-search-close__icon {
+  height: 1rem;
+
+  fill: var(--color-black);
+}
+
+.quick-search__container {
+  position: relative;
+
+  padding-top: 5rem;
+}
+
+.quick-search__input {
+  margin-top: 0;
+  min-height: 3rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+
+  font-family: var(--ui-font);
+  font-size: 1rem;
+}
+
+.quick-search__results {
+  margin: 0;
+  max-height: calc(100vh - var(--search-height));
+  padding: 0;
+
+  overflow-y: auto;
+}
+
+.quick-search-results__inner {
+  --block-spacing: 1em;
+
+  display: grid;
+  gap: var(--block-spacing);
+  grid-template-columns: 1fr;
+  padding: var(--block-spacing) 0;
+}
+
+.quick-search-results__item {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.quick-search-results-item__link {
+  width: 100%;
+  padding: 1rem;
+
+  color: var(--color-black);
+  text-decoration: none;
+
+  background-color: var(--color-white);
+  border: 1px solid var(--color-gray-light);
+  border-radius: 0.25rem;
+}
+
+.quick-search-results-item-link__image {
+  display: block;
+  max-width: 100%;
+}
+
+.quick-search-results-item-link__price {
+  font-family: var(--header-font);
+  font-size: 1.5em;
+}
+
+.quick-search-results__view-all {
+  display: flex;
+  justify-content: center;
+}
+
+@include media(400px) {
+  .quick-search-results__inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include media(768px) {
+  .quick-search-results__inner {
+    --block-spacing: 2em;
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@include media(1200px) {
+  .quick-search-results__inner {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}

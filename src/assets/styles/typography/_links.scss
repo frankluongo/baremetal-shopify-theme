@@ -1,0 +1,16 @@
+.content {
+  a {
+    color: var(--color-links-text);
+    font-weight: bold;
+    text-decoration: none;
+
+    @include transition;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--color-white);
+
+    background-color: var(--color-links-text);
+  }
+}

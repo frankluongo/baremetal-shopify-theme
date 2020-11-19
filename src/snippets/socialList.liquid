@@ -1,0 +1,31 @@
+<nav class="social-nav social-nav--{{ modifier}}">
+  {% if heading != blank %}
+    <h3 class="social-nav__heading social-nav__heading--{{ modifier }}">{{ heading }}</h3>
+  {% endif %}
+  <ul class="social-nav__list social-nav__list--{{ modifier }}">
+    {% if settings.showFacebook %}
+      {% render 'socialItem', url: settings.facebook, name: 'facebook', modifier: modifier, title: 'Facebook' %}
+    {% endif %}
+    {% if settings.showInstagram %}
+      {% render 'socialItem', url: settings.instagram, name: 'instagram', modifier: modifier, title: 'Instagram' %}
+    {% endif %}
+    {% if settings.showPinterest %}
+      {% render 'socialItem', url: settings.pinterest, name: 'pinterest', modifier: modifier, title: 'Pinterest' %}
+    {% endif %}
+    {% if settings.showSnapchat %}
+      {% render 'socialItem', url: settings.snapchat, name: 'snapchat', modifier: modifier, title: 'Snapchat' %}
+    {% endif %}
+    {% if settings.showTripAdvisor %}
+      {% render 'socialItem', url: settings.tripadvisor, name: 'tripadvisor', modifier: modifier, title: 'TripAdvisor' %}
+    {% endif %}
+    {% if settings.showTwitter %}
+      {% render 'socialItem', url: settings.twitter, name: 'twitter', modifier: modifier, title: 'Twitter' %}
+    {% endif %}
+    {% if settings.showVimeo %}
+      {% render 'socialItem', url: settings.vimeo, name: 'vimeo', modifier: modifier, title: 'Vimeo' %}
+    {% endif %}
+    {% if settings.showYouTube %}
+      {% render 'socialItem', url: settings.youtube, name: 'youtube', modifier: modifier, title: 'YouTube' %}
+    {% endif %}
+  </ul>
+</nav>

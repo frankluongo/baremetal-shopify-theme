@@ -1,0 +1,37 @@
+@mixin block-spacing($type, $amount) {
+  #{$type}-bottom: $amount;
+  #{$type}-block-end: $amount;
+  #{$type}-top: $amount;
+  #{$type}-block-start: $amount;
+}
+
+@mixin bottom-spacing($type, $amount) {
+  #{$type}-bottom: $amount;
+  #{$type}-block-end: $amount;
+}
+
+@mixin top-spacing($type, $amount) {
+  #{$type}-top: $amount;
+  #{$type}-block-start: $amount;
+}
+
+@mixin inline-spacing($type, $amount) {
+  #{$type}-left: $amount;
+  #{$type}-inline-start: $amount;
+  #{$type}-right: $amount;
+  #{$type}-inline-end: $amount;
+}
+
+@mixin media($breakpoint, $prop: min-width, $media: screen) {
+  @media #{$media} and (#{$prop}: $breakpoint) {
+    @content;
+  }
+}
+
+@mixin transition(
+  $prop: all,
+  $duration: var(--transition-speed),
+  $easing: ease-in-out
+) {
+  transition: $prop $duration $easing;
+}

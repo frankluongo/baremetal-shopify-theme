@@ -1,0 +1,40 @@
+{
+  "general": {
+    "404": {
+      "title": "Not found",
+      "subtext_html": "The page you were looking for does not exist"
+    }
+  },
+  "customer": {
+    "account": {
+      "details": "Account Details",
+      "return": "Return To Your Account",
+      "title": "Your Account",
+      "view_addresses": "View Addresses"
+    },
+    "orders": {
+      "date": "Ordered On",
+      "fulfillment_status": "Fulfillment Status",
+      "order_number": "Order Number",
+      "payment_status": "Payment Status",
+      "title": "Order History",
+      "total": "Total"
+    },
+    "order": {
+      "billing_address": "Billing Address",
+      "date": "Ordered On {{ orderDate }}",
+      "fulfillment_status": "Fulfillment Status",
+      "payment_status": "Payment Status",
+      "price": "Price",
+      "product": "Product",
+      "quantity": "Quantity",
+      "shipping": "Shipping:",
+      "shipping_address": "Shipping Address",
+      "sku": "SKU",
+      "subtotal": "Subtotal",
+      "tax": "Tax:",
+      "title": "Order {{ name }}",
+      "total": "Total"
+    }
+  }
+}

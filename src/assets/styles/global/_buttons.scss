@@ -1,0 +1,33 @@
+button,
+input[type="submit"],
+input[type="button"],
+.button {
+  display: inline-block;
+  padding: 1em 2em;
+
+  color: var(--color-button-text);
+  font-family: var(--ui-font);
+  font-size: 1em;
+  letter-spacing: 1px;
+  text-decoration: none;
+
+  appearance: none;
+  background-color: var(--color-button-bg);
+  border: 1px solid var(--color-button-bg);
+  border-radius: 0.25rem;
+  cursor: pointer;
+  @include transition;
+}
+
+button:hover,
+button:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+.button:hover,
+.button:focus {
+  color: var(--color-black);
+
+  background-color: var(--color-white);
+}

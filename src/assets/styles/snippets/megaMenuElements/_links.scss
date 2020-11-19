@@ -1,0 +1,17 @@
+.mm__link {
+  display: block;
+  padding: 1rem;
+
+  color: var(--text-color);
+  text-transform: capitalize;
+
+  text-decoration: none;
+  @include transition;
+}
+
+.mm__link:hover,
+.mm__link:focus {
+  color: var(--text-color);
+
+  background-color: transparent;
+}

@@ -1,0 +1,52 @@
+.homepage-carousel__dots {
+  --dots-height: 2rem;
+  left: 0;
+  position: absolute;
+  right: 0;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  background-color: rgba(0, 0, 0, 0.15);
+  height: var(--dots-height);
+}
+
+.homepage-carousel__wrapper--no-bg .homepage-carousel__dots {
+  background-color: transparent;
+}
+
+.homepage-carousel__dot {
+  --dot-size: 0.5rem;
+  margin: 0;
+  padding: 0;
+
+  height: var(--dot-size);
+  width: var(--dot-size);
+
+  background: var(--color-white);
+  border: none;
+  border-radius: 50%;
+  opacity: 0.25;
+  @include transition;
+}
+
+.homepage-carousel__dot:hover,
+.homepage-carousel__dot[data-active="true"] {
+  background: var(--color-white);
+  opacity: 1;
+}
+
+.homepage-carousel__dots {
+  top: calc(var(--carousel-panel-height) - var(--dots-height));
+}
+
+@include media(768px) {
+  .homepage-carousel__dots {
+    --dots-height: 4rem;
+  }
+  .homepage-carousel__dot {
+    --dot-size: 1rem;
+  }
+}

@@ -1,0 +1,30 @@
+<section class="container--slim">
+  <header class="p-top-3">
+    <h1>Create Your Account</h1>
+    <hr class="m-top-2">
+  </header>
+  <div class="p-bottom-6 p-top-3">
+    {% form 'create_customer', class: 'form' %}
+      {{ form.errors | default_errors }}
+      <div class="form__block">
+        <label class="form__label" for="first_name">First Name</label>
+        <input class="form__input" type="text" value="" name="customer[first_name]" size="30" />
+      </div>
+      <div class="form__block">
+        <label class="form__label" for="last_name">Last Name</label>
+        <input class="form__input" type="text" value="" name="customer[last_name]" size="30" />
+      </div>
+      <div class="form__block">
+        <label class="form__label" for="email">Email Address</label>
+        <input class="form__input" type="email" value="" name="customer[email]" size="30" />
+      </div>
+      <div class="form__block">
+        <label class="form__label" for="password">Password</label>
+        <input class="form__input" type="password" value="" name="customer[password]" size="30" />
+      </div>
+      <div class="form__block">
+        <input class="form__submit" type="submit" value="Create" />
+      </div>
+    {% endform %}
+  </div>
+</section>

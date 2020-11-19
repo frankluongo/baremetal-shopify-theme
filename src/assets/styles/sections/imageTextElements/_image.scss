@@ -1,0 +1,23 @@
+.image-text__image {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-text__image--overlay::before {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  background-color: var(--background-color);
+  content: "";
+  opacity: var(--opacity);
+}

@@ -1,0 +1,20 @@
+<li
+  class="social-nav-list__item social-nav-list__item--{{ modifier}}"
+>
+  <a
+    class="social-nav-list-item__link social-nav-list-item__link--{{ modifier }}"
+    href="{{ url }}"
+    target="_blank"
+    rel="noopener noreferrer"
+    title="Check us out on {{ title }}"
+  >
+    {%
+      render 'icon',
+      name: name,
+      iconClass: 'social-nav-list-link__icon'
+    %}
+    <span class="social-nav-list-link__title">
+      {{ title }}
+    </span>
+  </a>
+</li>

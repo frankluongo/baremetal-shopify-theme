@@ -1,0 +1,185 @@
+{% if section.settings.displayAnnouncement %}
+<section class="announcement-bar">
+  <div class="container announcement-bar__container">
+    {{ section.settings.barContent }}
+  </div>
+</section>
+{% endif %}
+<div class="header__wrapper">
+  <section class="container header__container">
+    {%
+      render 'logo',
+      useLogo: section.settings.useLogoHeader,
+      logoType: section.settings.logoTypeHeader
+      logoClass: 'header__logo'
+      logoSize: section.settings.logoSizeHeader
+    %}
+    {% if section.settings.menuType == 'default' %}
+      {% render 'navHeader' %}
+    {% else %}
+      {%
+        render 'navMegaMenu'
+        menu: section.settings.headerMenu,
+        useLogo: section.settings.useLogoHeader,
+        logoType: section.settings.logoTypeHeader
+        logoClass: 'header__logo'
+        logoSize: section.settings.logoSizeHeader
+        modifier: 'header__mega-menu'
+
+      %}
+    {% endif %}
+    <div class="header__nav-cart-search">
+      {% render 'navCartAndSearch' %}
+      {% render 'navAccounts' %}
+    </div>
+  </section>
+</div>
+
+
+{% style %}
+.announcement-bar {
+  --background-color: {{ section.settings.bgAnnouncementBar }};
+  --text-color: {{ section.settings.textColorAnnouncementBar }};
+}
+
+.header#shopify-section-{{ section.id }} {
+  --background-color: var(--{{ section.settings.bgHeader }});
+  --border-color: var(--{{ section.settings.borderHeader }});
+  --text-color: var(--{{ section.settings.textColorHeader }});
+}
+{% endstyle %}
+
+{% schema %}
+  {
+    "name": "Website Header",
+    "tag": "header",
+    "class": "header",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Announcement Bar"
+      },
+      {
+        "id": "displayAnnouncement",
+        "type": "checkbox",
+        "label": "Show Announcement Bar?",
+        "default": false
+      },
+      {
+        "id": "barContent",
+        "type": "richtext",
+        "label": "Announcement Bar Content",
+        "default": "<p>Add your text here</p>"
+      },
+      {
+        "type": "color",
+        "id": "bgAnnouncementBar",
+        "label": "Announcement Bar Background Color",
+        "default": "#ffffff"
+      },
+      {
+        "type": "color",
+        "id": "textColorAnnouncementBar",
+        "label": "Announcement Bar Text Color",
+        "default": "#333333"
+      },
+      {
+        "type": "header",
+        "content": "Menu Style"
+      },
+      {
+        "type": "link_list",
+        "id": "headerMenu",
+        "label": "Header Menu",
+        "default":"main-menu"
+      },
+      {
+        "type": "select",
+        "id": "menuType",
+        "label": "Menu Type",
+        "options": [
+          { "value": "default", "label": "Default" },
+          { "value": "mega", "label": "Mega Menu" }
+        ]
+      },
+      {
+        "type": "header",
+        "content": "Header Logo"
+      },
+      {
+        "id": "useLogoHeader",
+        "type": "checkbox",
+        "label": "Include Logo?",
+        "default": true
+      },
+      {
+        "type": "select",
+        "id": "logoTypeHeader",
+        "label": "Type of Logo to use",
+        "options": [
+          { "value": "brandLogoLight", "label": "Logo for Dark Backgrounds" },
+          { "value": "brandLogoDark", "label": "Logo for Light Backgrounds" }
+        ]
+      },
+      {
+        "type": "number",
+        "id": "logoSizeHeader",
+        "label": "Maximum Logo Size (px)",
+        "default": 180
+      },
+      {
+        "type": "header",
+        "content": "Header Colors"
+      },
+      {
+        "type": "select",
+        "id": "bgHeader",
+        "label": "Background Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ],
+        "default": "color-white"
+      },
+      {
+        "type": "select",
+        "id": "borderHeader",
+        "label": "Border Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" },
+          { "value": "transparent", "label": "None" }
+        ],
+        "default": "color-gray-light"
+      },
+      {
+        "type": "select",
+        "id": "textColorHeader",
+        "label": "Text Color",
+        "options": [
+          { "value": "color-primary", "label": "Primary Brand Color" },
+          { "value": "color-secondary", "label": "Secondary Brand Color" },
+          { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+          { "value": "color-white", "label": "White" },
+          { "value": "color-gray-light", "label": "Light Gray" },
+          { "value": "color-gray-medium", "label": "Medium Gray" },
+          { "value": "color-gray-dark", "label": "Dark Gray" },
+          { "value": "color-black", "label": "Black" }
+        ],
+        "default": "color-black"
+      }
+    ]
+  }
+{% endschema %}

@@ -1,0 +1,25 @@
+.mm__toggle-wrapper {
+  display: flex;
+  flex: 0 1 auto;
+  justify-content: flex-end;
+  order: 1;
+}
+
+.mm__toggle {
+  margin: 0;
+  padding: 1rem;
+
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+
+.mm-toggle__icon {
+  height: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .mm__toggle-wrapper {
+    display: none;
+  }
+}

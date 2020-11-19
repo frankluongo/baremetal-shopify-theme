@@ -1,0 +1,168 @@
+<div {% if section.settings.useBgImage %} class="email-signup__background" data-lazy-bg data-src="{{ section.settings.bgImage | img_url: '1440x', format: 'pjpg' }}"{% endif %}></div>
+<section class="email-signup__container container">
+  <header class="email-signup__header email-signup__header--{{ section.settings.subheadingPosition }} text-align--{{ section.settings.textAlignment }}">
+    <h2 class="email-signup__heading">{{ section.settings.heading | escape }}</h2>
+    <p class="email-signup__subtitle">{{ section.settings.subHeading | escape }}</p>
+    {% if section.settings.useBorder %}
+      <hr class="email-signup__rule" />
+    {% endif %}
+  </header>
+  <div class="email-signup__form-wrapper email-signup__form-wrapper--{{ section.settings.textAlignment }}">
+    {% case section.settings.signupType %}
+      {% when 'engagementGuide' %}
+        {% render 'engagementGuide', id: section.id %}
+      {% when 'newsletterSignup' %}
+        {% render 'newsletterSignup', modifier: '', id: section.id %}
+      {% else %}
+        Please select a valid Email Signup Type
+    {% endcase %}
+  </div>
+</section>
+
+{% style %}
+.custom-content-section#shopify-section-{{ section.id }} {
+  --padding-bottom: {{ section.settings.paddingBottom }}rem;
+  --padding-top: {{ section.settings.paddingTop }}rem;
+  --background-color: var(--{{ section.settings.bgColor }});
+  --text-color: var(--{{ section.settings.textColor }});
+}
+{% endstyle %}
+
+
+{% schema %}
+{
+	"name": "Email Signup",
+	"tag": "section",
+	"class": "email-signup custom-content-section",
+  "settings": [
+    {
+			"type": "header",
+			"content": "Email Signup Padding"
+    },
+		{
+			"type": "number",
+      "id": "paddingTop",
+			"label": "Top Padding",
+			"default": 3
+		},
+		{
+			"type": "number",
+			"id": "paddingBottom",
+			"label": "Bottom Padding",
+			"default": 3
+		},
+    {
+			"type": "header",
+			"content": "Email Signup Background"
+		},
+		{
+			"type": "checkbox",
+			"id": "useBgImage",
+			"label": "Use a Background Image?",
+			"default": true
+		},
+		{
+			"type": "image_picker",
+			"id": "bgImage",
+			"label": "Background Image"
+		},
+		{
+			"type": "select",
+			"id": "bgColor",
+			"label": "Background Color",
+      "options": [
+        { "value": "color-primary", "label": "Primary Brand Color" },
+				{ "value": "color-secondary", "label": "Secondary Brand Color" },
+				{ "value": "color-tertiary", "label": "Tertiary Brand Color" },
+				{ "value": "color-white", "label": "White" },
+				{ "value": "color-gray-light", "label": "Light Gray" },
+				{ "value": "color-gray-medium", "label": "Medium Gray" },
+				{ "value": "color-gray-dark", "label": "Dark Gray" },
+				{ "value": "color-black", "label": "Black" }
+			],
+      "default": "color-white"
+		},
+		{
+			"type": "select",
+			"id": "textColor",
+			"label": "Text Color",
+      "options": [
+        { "value": "color-primary", "label": "Primary Brand Color" },
+				{ "value": "color-secondary", "label": "Secondary Brand Color" },
+				{ "value": "color-tertiary", "label": "Tertiary Brand Color" },
+				{ "value": "color-white", "label": "White" },
+				{ "value": "color-gray-light", "label": "Light Gray" },
+				{ "value": "color-gray-medium", "label": "Medium Gray" },
+				{ "value": "color-gray-dark", "label": "Dark Gray" },
+				{ "value": "color-black", "label": "Black" }
+      ],
+      "default": "color-black"
+		},
+		{
+			"type": "header",
+			"content": "Email Signup Text"
+		},
+		{
+			"type": "select",
+			"id": "textAlignment",
+			"label": "Text Alignment",
+      "options": [
+        { "value": "center", "label": "Center" },
+				{ "value": "left", "label": "Left" },
+				{ "value": "right", "label": "Right" }
+			],
+			"default": "center"
+		},
+		{
+			"type": "text",
+			"id": "subHeading",
+			"label": "Subheading",
+			"default": "Callout Subheading"
+		},
+		{
+			"type": "text",
+			"id": "heading",
+			"label": "Heading",
+			"default": "Callout Heading"
+		},
+		{
+			"type": "select",
+			"id": "subheadingPosition",
+			"label": "Subheading Position",
+			"options": [{
+					"value": "above-header",
+					"label": "Above The Header"
+				},
+				{
+					"value": "below-header",
+					"label": "Below The Header"
+				}
+			]
+		},
+		{
+			"type": "checkbox",
+			"id": "useBorder",
+			"label": "Display Border?",
+			"default": true
+    },
+    {
+			"type": "header",
+			"content": "Email Signup Settings"
+    },
+		{
+			"type": "select",
+			"id": "signupType",
+			"label": "Signup Type",
+      "options": [
+        { "value": "engagementGuide", "label": "Engagement Guide" },
+				{ "value": "newsletterSignup", "label": "Newsletter Signup" }
+      ],
+      "default": "engagementGuide"
+		}
+	],
+	"presets": [{
+		"name": "Email Signup",
+		"category": "Image"
+	}]
+}
+{% endschema %}

@@ -1,0 +1,16 @@
+<nav class="footer__nav">
+  <h3 class="footer-nav__heading">{{ menu.heading }}</h3>
+  <ul class="footer-nav__list">
+    {% for link in linklists[menu.footerMenu].links %}
+    <li class="footer-nav-list__item">
+      <a class="footer-nav-list-item__link" href="{{ link.url }}">{{ link.title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% if menu.heading contains 'Visit Us' and showAddress %}
+    <h3 class="footer-nav__heading">{{ settings.addressName }}</h3>
+    <span class="footer-nav__address">
+      {{ settings.address }}
+    </span>
+  {% endif %}
+</nav>

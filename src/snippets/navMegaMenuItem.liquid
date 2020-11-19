@@ -1,0 +1,39 @@
+{% assign title = item.title | escape | downcase | capitalize %}
+{% assign childListHandle = item.title | handleize %}
+{% assign nextLevel = level | plus: 1 %}
+
+<li
+  class="mm__item mm-l{{ level }}__item"
+  data-item-l{{ level }}
+  data-active="false"
+  {% if linklists[childListHandle].links != blank %}
+  data-has-submenu
+  {% endif %}
+>
+  <a
+    class="mm__link mm-l{{ level }}__link"
+    {% unless linklists[childListHandle].links != blank %}
+    href="{{ item.url }}"
+    {% if item.url contains "https://" %}
+    target="_blank"
+    rel="noopener noreferrer"
+    {% endif %}
+    {% else %}
+    href="#"
+    {% endunless %}
+    {% if linklists[childListHandle].links != blank %}
+    data-link-l{{ level }}
+    {% endif %}
+  >
+    {{ title }}
+  </a>
+  {% if linklists[childListHandle].links != blank %}
+  <ul class="mm__list mm-l{{ nextLevel }}__list">
+    <div class="mm__list-container mm-l{{ nextLevel }}__list-container">
+      {% for link in linklists[childListHandle].links %}
+        {% render 'navMegaMenuItem', level: nextLevel, item: link %}
+      {% endfor %}
+    </div>
+  </ul>
+  {% endif %}
+</li>

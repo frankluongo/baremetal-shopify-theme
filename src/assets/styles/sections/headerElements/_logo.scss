@@ -1,0 +1,12 @@
+.header__logo {
+  --header-margin: 1rem;
+
+  position: relative;
+  z-index: 1;
+
+  margin-right: var(--header-margin);
+}
+
+.header__logo:hover {
+  background-color: transparent;
+}

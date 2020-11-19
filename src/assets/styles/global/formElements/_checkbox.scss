@@ -1,0 +1,7 @@
+.checkbox + .checkbox__label + .form {
+  display: none;
+}
+
+.checkbox:checked + .checkbox__label + .form {
+  display: block;
+}

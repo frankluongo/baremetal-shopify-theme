@@ -1,0 +1,47 @@
+.horizontal-scroller__wrapper {
+  display: flex;
+  width: 100%;
+}
+
+.horiztonal-scroller__control {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  flex: 0 1 auto;
+  padding: 0 1rem;
+
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0;
+  @include transition;
+}
+
+.horiztonal-scroller__control:focus,
+.horiztonal-scroller__control:hover {
+  border: 1px solid var(--color-gray-light);
+}
+
+.horiztonal-scroller__icon {
+  height: 1rem;
+}
+
+.horizontal-scroller__outer {
+  flex: 1 1 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.horizontal-scroller__inner {
+  display: flex;
+
+  width: 100%;
+  overflow-x: auto;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.horizontal-scroller__inner::-webkit-scrollbar {
+  display: none;
+}

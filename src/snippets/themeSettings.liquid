@@ -1,0 +1,51 @@
+{% style %}
+:root {
+  /* Theme Settings */
+  --max-width: {{ settings.maxContentWidth }}rem;
+  --transition-speed: {{ settings.transitionSpeed }}ms;
+  --max-text-width: {% if settings.useMaxTextWidth %}{{ settings.maxTextWidth}}em{% else %}100%{% endif %};
+
+  /* Color Palette */
+  --color-primary: {{ settings.colorPrimary }};
+  --color-secondary: {{ settings.colorSecondary }};
+  --color-tertiary: {{ settings.colorTertiary }};
+
+  --color-white: {{ settings.colorWhite }};
+  --color-gray-light: {{ settings.colorGrayLight }};
+  --color-gray-medium: {{ settings.colorGrayMedium }};
+  --color-gray-dark: {{ settings.colorGrayDark }};
+  --color-black: {{ settings.colorBlack }};
+  --color-transparent: transparent;
+
+  /* Colors In Use */
+  --color-button-bg: var(--{{ settings.bgBtn }});
+  --color-button-text: var(--{{ settings.textColorBtn }});
+
+  --color-links-text: var(--{{ settings.linkTextColor }});
+
+  --color-table-background: var(--{{ settings.bgTable }});
+  --color-table-border: var(--{{ settings.borderTable }});
+  --color-table-text: var(--{{ settings.textColorTable }});
+
+  /* Typography */
+  --type-primary: {{ settings.typePrimary.family }}, {{ settings.typePrimary.fallback_families }};
+  --type-secondary: {{ settings.typeSecondary.family }}, {{ settings.typeSecondary.fallback_families }};
+  --type-tertiary: {{ settings.typeTertiary.family }}, {{ settings.typeTertiary.fallback_families }};
+
+  --header-font: var(--{{ settings.headerType }});
+  --header-weight: {{ settings.headerWeight }};
+  --header-text-transform: {{ settings.headerTextTransform }};
+  --header-letterspacing: {{ settings.headerLetterspacing }}px;
+  --header-lineheight: {{ settings.headerLineHeight }};
+
+  --body-font: var(--{{ settings.bodyType }});
+  --body-weight: {{ settings.bodyWeight }};
+  --body-lineheight: {{ settings.bodyLineHeight }};
+
+  --ui-font: var(--{{ settings.uiType }});
+  --ui-weight: var(--{{ settings.uiWeight }});
+  --ui-text-transform: var(--{{ settings.uiTextTransform }});
+  --ui-letterspacing: var(--{{ settings.uiLetterspacing }});
+  --ui-lineheight: var(--{{ settings.uiLineHeight }});
+}
+{% endstyle %}

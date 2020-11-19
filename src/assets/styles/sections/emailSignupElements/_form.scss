@@ -1,0 +1,41 @@
+.email-signup__form-wrapper {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  max-width: 40rem;
+}
+
+.email-signup__form-wrapper--center {
+  @include inline-spacing(margin, auto);
+}
+
+.email-signup__form {
+  display: flex;
+  width: 100%;
+}
+
+.email-signup__input {
+  flex: 1 1 auto;
+  margin-bottom: 1rem;
+  min-height: 3rem;
+  padding: 0.5rem 1rem;
+
+  font-size: 1em;
+}
+
+@include media(399px, max-width) {
+  .email-signup__form {
+    flex-wrap: wrap;
+  }
+
+  .email-signup__submit {
+    flex: 1 1 100%;
+  }
+}
+
+@include media(400px) {
+  .email-signup__input {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+}

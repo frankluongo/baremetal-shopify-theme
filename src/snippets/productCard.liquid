@@ -1,0 +1,13 @@
+<a class="product-card product-card--{{ modifiers }}" href="/products/{{ pd.handle }}">
+  <figure
+    class="product-card__image"
+    data-lazy-bg
+    data-src="{{ pd.featured_image | img_url: '600x', format: 'pjpg'  }}"
+  ></figure>
+  <section class="product-card__title">
+    {{ pd.title | downcase | capitalize }}
+  </section>
+  <section class="product-card__price">
+    {% if pd.price_max > pd.price %}From{% endif %} {{ pd.price_min | money }}
+  </section>
+</a>

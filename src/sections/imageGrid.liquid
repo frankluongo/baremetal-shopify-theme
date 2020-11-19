@@ -1,0 +1,104 @@
+<div class="image-grid__container image-grid__container--text-{{ section.settings.textPosition }} container">
+  {% for block in section.blocks %}
+    {% render 'gridImage', gridImage: block.settings, index: forloop.index0, textPosition: section.settings.textPosition %}
+  {% endfor %}
+</div>
+
+{% style %}
+.custom-content-section#shopify-section-{{ section.id }} {
+  --padding-bottom: {{ section.settings.paddingBottom }}rem;
+  --padding-top: {{ section.settings.paddingTop }}rem;
+  --background-color: var(--{{ section.settings.bgColor }});
+  --text-color: var(--{{ section.settings.textColor }});
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Image Grid",
+  "max_blocks": 4,
+	"tag": "section",
+	"class": "image-grid custom-content-section",
+  "settings": [
+    {
+			"type": "header",
+			"content": "Appearance"
+    },
+    {
+			"type": "number",
+      "id": "paddingTop",
+			"label": "Top Padding",
+			"default": 3
+		},
+		{
+			"type": "number",
+			"id": "paddingBottom",
+			"label": "Bottom Padding",
+			"default": 3
+		},
+    {
+      "type": "select",
+      "id": "textPosition",
+      "label": "Test Position",
+      "options": [
+        { "value": "top", "label": "On top of images" },
+        { "value": "separate", "label": "Separated from images" }
+      ],
+      "default": "top"
+    },
+		{
+			"type": "select",
+			"id": "bgColor",
+			"label": "Background Color",
+      "options": [
+        { "value": "color-primary", "label": "Primary Brand Color" },
+				{ "value": "color-secondary", "label": "Secondary Brand Color" },
+				{ "value": "color-tertiary", "label": "Tertiary Brand Color" },
+				{ "value": "color-white", "label": "White" },
+				{ "value": "color-gray-light", "label": "Light Gray" },
+				{ "value": "color-gray-medium", "label": "Medium Gray" },
+				{ "value": "color-gray-dark", "label": "Dark Gray" },
+				{ "value": "color-black", "label": "Black" }
+			],
+      "default": "color-white"
+    }
+  ],
+	"blocks": [
+	  {
+		  "type": "text",
+		  "name": "Image Grid",
+		  "settings": [
+		    { "type": "image_picker", "id": "image", "label": "Image" },
+		    { "type": "text", "id": "header", "label": "Header" },
+        { "type": "text", "id": "subheading", "label": "Subheading" },
+        {
+          "type": "select",
+          "id": "textColor",
+          "label": "Text Color",
+          "options": [
+            { "value": "light", "label": "Light" },
+            { "value": "dark", "label": "Dark" }
+          ],
+          "default": "dark"
+        },
+        {
+          "type": "select",
+          "id": "subheadPost",
+          "label": "Subheading Position",
+          "options": [
+            { "value": "above", "label": "Above The Heading" },
+            { "value": "below", "label": "Below The Heading" }
+          ],
+          "default": "below"
+        },
+		    { "type": "text", "id": "linkText", "label": "Button Text" },
+		    { "type": "url", "id": "link", "label": "Button link" }
+		  ]
+	  }
+	],
+	"presets": [{
+		"name": "Image Grid",
+		"category": "Image"
+	}]
+}
+{% endschema %}

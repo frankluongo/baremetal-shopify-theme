@@ -1,0 +1,6 @@
+.custom-content-section {
+  @include bottom-spacing(padding, var(--padding-bottom));
+  @include top-spacing(padding, var(--padding-top));
+
+  background-color: var(--background-color);
+}

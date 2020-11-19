@@ -1,0 +1,208 @@
+{% assign number = section.settings.noOfTestimonials %}
+<div class="testimonials__container testimonials__container--header-{{ section.settings.headerPosition }} container">
+  <header class="testimonials__header">
+    <h2 class="testimonials-header__heading">{{ section.settings.heading }}</h2>
+    {% if section.settings.subheading != blank %}
+      <p>{{ section.settings.subheading }}</p>
+    {% endif %}
+  </header>
+  <section class="testimonials__list">
+    {% case section.settings.testimonialType %}
+      {% when 'manual' %}
+        {% for block in section.blocks limit:number %}
+          {%
+            render 'testimonialTile',
+            author: block.settings.author,
+            image: block.settings.image,
+            quote: block.settings.quote
+          %}
+        {% endfor %}
+      {% when 'useBlog' %}
+        {% case section.settings.testimonialBlogStyle %}
+        {% when 'mostRecent' %}
+          {% for article in blogs[section.settings.testimonialsBlog].articles %}
+            {% render 'testimonialTile', image: article.image, quote: article.content %}
+          {% endfor %}
+        {% when 'useFeatured' %}
+          {% for article in blogs[section.settings.testimonialsBlog].articles %}
+            {% if article.tags contains 'featured' %}
+              {% render 'testimonialTile', image: article.image, quote: article.content %}
+            {% endif %}
+          {% endfor %}
+        {% endcase %}
+      {% else %}
+      Please select a valid Testimonials Type
+    {% endcase %}
+  </section>
+</div>
+
+
+{% style %}
+.custom-content-section#shopify-section-{{ section.id }} {
+  --padding-bottom: {{ section.settings.paddingBottom }}rem;
+  --padding-top: {{ section.settings.paddingTop }}rem;
+  --background-color: var(--{{ section.settings.bgColor }});
+  --text-color: var(--{{ section.settings.textColor }});
+}
+{% endstyle %}
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "tag": "section",
+  "class": "testimonials custom-content-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+			"type": "number",
+      "id": "paddingTop",
+			"label": "Top Padding",
+			"default": 3
+		},
+		{
+			"type": "number",
+			"id": "paddingBottom",
+			"label": "Bottom Padding",
+			"default": 3
+		},
+    {
+      "type": "select",
+      "id": "headerPosition",
+      "label": "Header Position",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "left", "label": "Left" }
+      ],
+      "default": "top"
+    },
+    {
+      "type": "select",
+      "id": "bgColor",
+      "label": "Background Color",
+      "options": [
+        { "value": "color-primary", "label": "Primary Brand Color" },
+        { "value": "color-secondary", "label": "Secondary Brand Color" },
+        { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+        { "value": "color-white", "label": "White" },
+        { "value": "color-gray-light", "label": "Light Gray" },
+        { "value": "color-gray-medium", "label": "Medium Gray" },
+        { "value": "color-gray-dark", "label": "Dark Gray" },
+        { "value": "color-black", "label": "Black" }
+      ],
+      "default": "color-white"
+    },
+    {
+      "type": "select",
+      "id": "textColor",
+      "label": "Text Color",
+      "options": [
+        { "value": "color-primary", "label": "Primary Brand Color" },
+        { "value": "color-secondary", "label": "Secondary Brand Color" },
+        { "value": "color-tertiary", "label": "Tertiary Brand Color" },
+        { "value": "color-white", "label": "White" },
+        { "value": "color-gray-light", "label": "Light Gray" },
+        { "value": "color-gray-medium", "label": "Medium Gray" },
+        { "value": "color-gray-dark", "label": "Dark Gray" },
+        { "value": "color-black", "label": "Black" }
+      ],
+      "default": "color-black"
+    },
+    {
+      "type": "header",
+      "content": "Text"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "heading",
+      "default": "Testimonials"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "What Are Customers Are Saying"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "noOfTestimonials",
+      "label": "Number of Testimonials",
+      "options": [
+        { "value": "3", "label": "3" },
+        { "value": "6", "label": "6" }
+      ],
+      "default": "3"
+    },
+    {
+      "type": "select",
+      "id": "testimonialType",
+      "label": "Testimonials Type",
+      "options": [
+        { "value": "manual", "label": "Manually Enter Them" },
+        { "value": "useBlog", "label": "Use a Blog" }
+      ],
+      "default": "manual"
+    },
+    {
+      "type": "header",
+      "content": "Blog Settings"
+    },
+    {
+      "type": "blog",
+      "id": "testimonialsBlog",
+      "label": "Testimonials Blog",
+      "info": "This is the Blog used for collecting testimonials"
+    },
+    {
+      "type": "select",
+      "id": "testimonialBlogStyle",
+      "label": "Testimonials Blog Style",
+      "options": [
+        { "value": "mostRecent", "label": "Show Most Recent" },
+        { "value": "useFeatured", "label": "Use Featured" }
+      ],
+      "default": "mostRecent",
+      "info": "The most recent option will just show the most recent items, whereas the Use Featured option will look for blog posts with a \"Featured\" Tag on them."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "quote",
+          "label": "Quote",
+          "default": "<p>Add customer reviews and testimonials to showcase your store's happy customers.</p>"
+        },
+        {
+          "type": "text",
+          "id": "author",
+          "label": "Testimonial Author",
+          "default": "Author Name"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "category": "Image"
+    }
+  ]
+}
+
+{% endschema %}

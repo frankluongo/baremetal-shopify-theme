@@ -1,0 +1,23 @@
+<{% if panel.settings.link %}a{% else %}div{% endif %}
+  class="homepage-carousel__panel"
+  data-panel
+  data-active="{% if index == 0 %}true{% else %}false{% endif %}"
+  href="{{ panel.settings.link }}"
+>
+  <figure
+    class="homepage-carousel-panel__image"
+    data-panel-image
+    style="background-image: url({{ panel.settings.image | img_url: '1440x', format: 'pjpg'  }})"
+  ></figure>
+  {% if panel.settings.showText %}
+    <div class="homepage-carousel-panel__text">
+      <h2 class="homepage-carousel-panel__heading">{{ panel.settings.title }}</h2>
+      <p class="homepage-carousel-panel__subheading">{{ panel.settings.subheading }}</p>
+      {% if panel.settings.link %}
+        <button class="homepage-carousel-panel__button">
+          {{ panel.settings.buttonText }}
+        </button>
+      {% endif %}
+    </div>
+  {% endif %}
+</{% if panel.settings.link %}a{% else %}div{% endif %}>

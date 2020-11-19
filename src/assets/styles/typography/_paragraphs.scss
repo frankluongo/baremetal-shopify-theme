@@ -1,0 +1,11 @@
+p,
+.paragraph {
+  font-family: var(--body-font);
+  font-weight: var(--body-weight);
+  line-height: var(--body-lineheight);
+}
+
+.content p,
+.content .paragraph {
+  max-width: var(--max-text-width);
+}

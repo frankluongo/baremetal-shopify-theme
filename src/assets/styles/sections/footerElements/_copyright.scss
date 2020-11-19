@@ -1,0 +1,15 @@
+.footer__copyright {
+  @include block-spacing(padding, 1rem);
+  margin-top: 2rem;
+
+  color: var(--color-white);
+  text-align: center;
+
+  background-color: var(--color-black);
+  border-top: 2px solid var(--color-white);
+}
+
+.footer-copyright__link {
+  color: var(--color-white);
+  text-decoration: none;
+}

@@ -1,0 +1,25 @@
+.image-grid__container {
+  display: grid;
+}
+
+@include media(600px) {
+  .image-grid__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@include media(1024px) {
+  .image-grid__container {
+    grid-template-areas:
+      "a a b b"
+      "a a c d";
+  }
+
+  .image-grid__image[data-index="0"] {
+    grid-area: a;
+  }
+
+  .image-grid__image[data-index="1"] {
+    grid-area: b;
+  }
+}

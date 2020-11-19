@@ -1,0 +1,21 @@
+.text-columns__column {
+  flex: 1 1 100%;
+
+  color: var(--text-color);
+}
+
+.text-columns-column__text {
+  padding: 1rem;
+}
+
+.text-columns-column__text > * + * {
+  margin-top: 1rem;
+}
+
+@include media(640px) {
+  .text-columns-column__text {
+    padding: 2rem;
+
+    font-size: var(--text-size);
+  }
+}

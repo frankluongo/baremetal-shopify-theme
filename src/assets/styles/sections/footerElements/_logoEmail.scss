@@ -1,0 +1,31 @@
+.footer__logo-email {
+  display: grid;
+  gap: 1rem;
+}
+
+.footer__logo {
+  display: flex;
+  justify-content: center;
+}
+
+.email-signup__form--footer {
+  max-width: 640px;
+}
+
+.footer-logo-email-signup__heading {
+  margin-bottom: 1rem;
+
+  color: var(--text-color);
+}
+
+@include media(768px) {
+  .footer__logo-email {
+    align-items: center;
+    gap: 2rem;
+    grid-template-columns: auto 1fr;
+  }
+
+  .footer-logo-email__signup {
+    @include block-spacing(padding, 4rem);
+  }
+}

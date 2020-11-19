@@ -1,0 +1,39 @@
+.mm__header {
+  align-items: center;
+  display: flex;
+  width: 100%;
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mm-header__logo {
+  height: 4rem;
+}
+
+.mm-header__close-wrapper {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mm-header__close-button {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  padding: 1rem;
+
+  appearance: none;
+  background-color: transparent;
+  border: none;
+}
+
+.mm-header-close-button__icon {
+  height: 1rem;
+}
+
+@media (min-width: 1280px) {
+  .mm__header {
+    display: none;
+  }
+}

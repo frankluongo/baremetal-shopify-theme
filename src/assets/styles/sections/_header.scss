@@ -1,0 +1,11 @@
+.header {
+  background-color: var(--background-color);
+
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header * {
+  color: var(--text-color);
+}
+
+@import "./headerElements";

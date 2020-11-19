@@ -1,0 +1,11 @@
+.gallery__container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+@include media(1024px) {
+  .gallery__container {
+    gap: 2rem;
+  }
+}

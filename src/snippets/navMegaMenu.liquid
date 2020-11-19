@@ -1,0 +1,48 @@
+<section class="mm__wrapper mm-wrapper {{ modifier }}">
+  </a>
+  <div class="mm__toggle-wrapper">
+    <button
+      aria-label="Open Menu"
+      title="Open Menu"
+      class="mm__toggle"
+      data-toggle
+      data-controls="nav,body"
+    >
+      {% render 'icon', name: 'bars', iconClass: 'mm-toggle__icon' %}
+      <span class="visually-hidden">Open Menu</span>
+    </button>
+  </div>
+  <nav class="mm" data-mega-menu data-ctrl="nav">
+    <header class="mm__header">
+    {%
+      render 'logo',
+      useLogo: useLogo,
+      logoType: logoType,
+      logoClass: 'mm-header__logo-link'
+      logoSize: '90'
+    %}
+    <div class="mm-header__close-wrapper">
+      <button
+        aria-label="Close Menu"
+        title="Close Menu"
+        class="mm-header__close-button"
+        data-toggle
+        data-controls="nav,body"
+      >
+        {% render 'icon', name: 'close', iconClass: 'mm-header-close-button__icon' %}
+        <span class="visually-hidden">Close Menu</span>
+      </button>
+    </div>
+    </header>
+    <ul class="mm__list mm-l1__list">
+      {% for link in linklists[menu].links %}
+        {% render 'navMegaMenuItem', level: 1, item: link %}
+      {% endfor %}
+    </ul>
+    <ul class="mm__mobile-items">
+      {% render 'navCartAndSearch' %}
+      {% render 'navAccounts' %}
+    </ul>
+  </nav>
+  <div class="mm__close" data-toggle data-controls="nav,body"></div>
+</section>

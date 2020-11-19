@@ -1,0 +1,7 @@
+.content {
+  --vertical-spacing: 1rem;
+}
+
+.content * + * {
+  margin-top: var(--vertical-spacing);
+}

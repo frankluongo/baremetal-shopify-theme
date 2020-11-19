@@ -1,0 +1,12 @@
+.testimonials__list {
+  display: flex;
+}
+
+.testimonials__container--header-left .testimonials__list {
+  flex: 1 1 75%;
+}
+
+.testimonials__container--header-top .testimonials__list {
+  flex: 1 1 66.66666%;
+  justify-content: center;
+}

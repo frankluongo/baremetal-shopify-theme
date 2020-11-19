@@ -1,0 +1,23 @@
+.mm-l1__link {
+  padding: 1rem;
+}
+
+.mm-l1__link[href="#"] {
+  font-weight: normal;
+}
+
+.mm-l1__link:not(:first-of-type) {
+  border-top: 1px solid var(--border-color);
+}
+
+@media (max-width: 1279px) {
+  .mm-l1__link {
+    border-bottom: 1px solid var(--border-color);
+  }
+}
+
+@media (min-width: 1280px) {
+  .mm-l1__item:not(:last-of-type) {
+    margin-right: 0.5rem;
+  }
+}

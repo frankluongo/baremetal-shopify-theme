@@ -1,0 +1,11 @@
+.container {
+  @include inline-spacing(margin, auto);
+  @include inline-spacing(padding, 1rem);
+  max-width: var(--max-width);
+  width: 100%;
+}
+
+.container--slim {
+  @extend .container;
+  max-width: 60rem;
+}

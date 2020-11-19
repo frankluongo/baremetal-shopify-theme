@@ -1,0 +1,4 @@
+<picture>
+  <source srcset="{{ image | img_url: '960x', format: 'pjpg' }}">
+  <img data-lazy-img data-src="{{ image | img_url: '960x' }}" alt="{{ shop.name }}" width="{{ image.width }}" height="{{ image.height }}">
+</picture>

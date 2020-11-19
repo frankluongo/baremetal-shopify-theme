@@ -1,0 +1,31 @@
+@each $direction in $setting-spacer-directions {
+  @for $i from 0 through $setting-max-spacer-value {
+    .m-#{$direction}-#{$i} {
+      margin-#{$direction}: #{$i}rem;
+    }
+
+    .m-block-#{$i} {
+      @include block-spacing("margin", #{$i}rem);
+    }
+
+    .m-inline-#{$i} {
+      @include inline-spacing("margin", #{$i}rem);
+    }
+
+    .p-#{$i} {
+      padding: #{$i}rem;
+    }
+
+    .p-block-#{$i} {
+      @include block-spacing("padding", #{$i}rem);
+    }
+
+    .p-inline-#{$i} {
+      @include inline-spacing("padding", #{$i}rem);
+    }
+
+    .p-#{$direction}-#{$i} {
+      padding-#{$direction}: #{$i}rem;
+    }
+  }
+}

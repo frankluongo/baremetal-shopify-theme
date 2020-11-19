@@ -1,0 +1,17 @@
+.announcement-bar {
+  @include block-spacing(padding, 0.5rem);
+
+  font-size: 0.875em;
+
+  background-color: var(--background-color);
+}
+
+.announcement-bar__container {
+  text-align: center;
+}
+
+.announcement-bar__container * {
+  max-width: none;
+
+  color: var(--text-color);
+}

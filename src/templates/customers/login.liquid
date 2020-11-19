@@ -1,0 +1,36 @@
+<section class="container--slim content">
+  <header class="p-top-3">
+    <h1>Log In</h1>
+    <hr class="m-top-2">
+  </header>
+  <div class="p-top-3 p-bottom-0">
+    {% form 'customer_login', class: 'form' %}
+      {{ form.errors | default_errors }}
+      <div class="form__block">
+        <label class="form__label" for="customer_email">Email Address</label>
+        <input class="form__input" type="email" name="customer[email]" />
+      </div>
+      <div class="form__block">
+        <label class="form__label" for="customer_password">Password</label>
+        <input class="form__input" type="password" name="customer[password]" />
+      </div>
+      <div class="form__block">
+        <input class="form__submit" type="submit" value="Sign In" />
+      </div>
+    {% endform %}
+  </div>
+  <div class="p-bottom-6">
+    <input class="checkbox" type="checkbox" value="Forgot Your Password?" name="forgot-password" name="forgot-password">
+    <label class="checkbox__label" for="forgot-password">Forgot your password?</label>
+    {% form 'recover_customer_password', class: 'form' %}
+      {{ form.errors | default_errors }}
+      <div class="form__block">
+        <label class="form__label" for="customer_email">Email Address</label>
+        <input class="form__input" type="email" name="email" />
+      </div>
+      <div class="form__block">
+        <input class="form__submit" type="submit" value="Submit" />
+      </div>
+    {% endform %}
+  </div>
+</section>

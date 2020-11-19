@@ -1,0 +1,49 @@
+.homepage-carousel__panel {
+  display: block;
+
+  text-decoration: none;
+
+  @include transition;
+}
+
+.homepage-carousel__panel[data-active="true"] {
+  opacity: 1;
+  z-index: 0;
+}
+
+.homepage-carousel__panel[data-active="false"] {
+  opacity: 0;
+  z-index: 0;
+
+  pointer-events: none;
+}
+
+.homepage-carousel-panel__image {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.homepage-carousel-panel__text {
+  margin: 0 auto;
+  max-width: 75rem;
+  padding: 1rem;
+
+  text-align: center;
+}
+
+.homepage-carousel-panel__heading {
+  color: var(--color-black);
+  font-size: 2em;
+}
+
+.homepage-carousel-panel__subheading {
+  max-width: none;
+
+  color: var(--color-black);
+  font-size: 1em;
+}
+
+.homepage-carousel-panel__button {
+  margin-top: 1rem;
+}

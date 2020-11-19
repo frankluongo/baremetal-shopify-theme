@@ -1,0 +1,56 @@
+.homepage-carousel__control {
+  position: absolute;
+  z-index: 1;
+
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0.5rem;
+  width: auto;
+
+  appearance: none;
+  background-color: rgba(0, 0, 0, 0.15);
+  border: none;
+  border-radius: 0;
+}
+
+.homepage-carousel__control:hover,
+.homepage-carousel__control:focus {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.homepage-carousel__wrapper--no-bg .homepage-carousel__control {
+  background-color: transparent;
+}
+
+.homepage-carousel__control--prev {
+  left: 0;
+}
+
+.homepage-carousel__control--next {
+  right: 0;
+}
+
+.homepage-carousel__control svg {
+  height: 1rem;
+
+  fill: var(--color-white);
+}
+
+.homepage-carousel__wrapper--no-bg .homepage-carousel__control svg {
+  filter: drop-shadow(1px 1px 5px rgba(0, 0, 0, 0.7));
+}
+
+.homepage-carousel__control {
+  top: calc(var(--carousel-panel-height) / 2);
+}
+
+@include media(768px) {
+  .homepage-carousel__control {
+    padding: 2rem 1rem;
+  }
+
+  .homepage-carousel__control svg {
+    height: 2rem;
+  }
+}

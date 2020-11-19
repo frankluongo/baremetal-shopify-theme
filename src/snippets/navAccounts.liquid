@@ -1,0 +1,31 @@
+{% if shop.customer_accounts_enabled %}
+<div class="nav__accounts">
+  {% if customer %}
+    <a class="nav-accounts__link" href="/account">
+      {% render 'icon', name: 'account', iconClass: 'nav-accounts-link__icon' %}
+      <div class="nav-accounts-link__text">
+        Account
+      </div>
+    </a>
+    <a class="nav-accounts__link" href="/account/logout">
+      {% render 'icon', name: 'signout', iconClass: 'nav-accounts-link__icon' %}
+      <div class="nav-accounts-link__text">
+        Log Out
+      </div>
+    </a>
+  {% else %}
+    <a class="nav-accounts__link" href="/account/login">
+      {% render 'icon', name: 'login', iconClass: 'nav-accounts-link__icon' %}
+      <div class="nav-accounts-link__text">
+        Log In
+      </div>
+    </a>
+    <a class="nav-accounts__link" href="/account/register">
+      {% render 'icon', name: 'signup', iconClass: 'nav-accounts-link__icon' %}
+      <div class="nav-accounts-link__text">
+        Register
+      </div>
+    </a>
+  {% endif %}
+</div>
+{% endif %}

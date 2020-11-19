@@ -1,0 +1,44 @@
+.nav-accounts__link {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  white-space: nowrap;
+
+  font-size: 0.875em;
+  text-decoration: none;
+}
+
+.nav-accounts-link__icon {
+  height: 1rem;
+
+  fill: currentColor;
+}
+
+@include media(1279px, max-width) {
+  .nav-accounts__link {
+    flex-direction: row;
+    padding: 1rem;
+  }
+
+  .nav-accounts-link__text {
+    margin-left: 0.5rem;
+  }
+}
+
+@include media(1280px) {
+  .nav__accounts {
+    display: flex;
+  }
+
+  .nav__accounts {
+    margin-left: 1rem;
+  }
+
+  .nav-accounts__link + .nav-accounts__link {
+    margin-left: 1rem;
+  }
+
+  .nav-accounts-link__text {
+    margin-top: 0.25rem;
+  }
+}
