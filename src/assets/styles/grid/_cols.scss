@@ -1,0 +1,15 @@
+@each $opt, $val in $columnsAndRows {
+  .grid-cols-#{$opt} {
+    grid-template-columns: $val;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $opt, $val in $columnsAndRows {
+      .#{$point}\:grid-cols-#{$opt} {
+        grid-template-columns: $val;
+      }
+    }
+  }
+}

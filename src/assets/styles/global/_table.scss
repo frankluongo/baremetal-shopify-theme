@@ -9,7 +9,6 @@
 
 table {
   min-width: 640px;
-  padding: 1rem;
   width: 100%;
 
   background-color: var(--color-table-background);
@@ -21,9 +20,7 @@ th {
 
   font-weight: bolder;
   text-align: left;
-}
 
-tr.heading {
   border-bottom: 1px solid var(--color-table-border);
 }
 

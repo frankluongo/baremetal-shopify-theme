@@ -1,0 +1,17 @@
+$flexDirections: (row, row-reverse, column, column-reverse);
+
+@each $direction in $flexDirections {
+  .flex-#{$direction} {
+    flex-direction: $direction;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $direction in $flexDirections {
+      .#{$point}\:flex-#{$direction} {
+        flex-direction: $direction;
+      }
+    }
+  }
+}

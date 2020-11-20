@@ -1,0 +1,43 @@
+$justifyContentOptions: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+$justifyItemsAndSelfOptions: (auto, start, end, center, stretch);
+
+@each $opt, $val in $justifyContentOptions {
+  .justify-#{$opt} {
+    justify-content: $val;
+  }
+}
+
+@each $opt in $justifyItemsAndSelfOptions {
+  .justify-items-#{$opt} {
+    justify-items: $opt;
+  }
+  .justify-self-#{$opt} {
+    justify-self: $opt;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $opt, $val in $justifyContentOptions {
+      .#{$point}\:justify-#{$opt} {
+        justify-content: $val;
+      }
+    }
+    @each $opt in $justifyItemsAndSelfOptions {
+      .#{$point}\:justify-items-#{$opt} {
+        justify-items: $opt;
+      }
+      .#{$point}\:justify-self-#{$opt} {
+        justify-self: $opt;
+      }
+    }
+  }
+}

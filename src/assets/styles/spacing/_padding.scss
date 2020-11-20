@@ -1,0 +1,51 @@
+@each $space, $value in $spacing {
+  .p-#{$space} {
+    padding: #{$value}em;
+  }
+  .px-#{$space} {
+    @include spacing-inline(padding, #{$value}em);
+  }
+  .py-#{$space} {
+    @include spacing-block(padding, #{$value}em);
+  }
+  .pb-#{$space} {
+    @include spacing-bottom(padding, #{$value}em);
+  }
+  .pl-#{$space} {
+    @include spacing-left(padding, #{$value}em);
+  }
+  .pr-#{$space} {
+    @include spacing-right(padding, #{$value}em);
+  }
+  .pt-#{$space} {
+    @include spacing-top(padding, #{$value}em);
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $space, $value in $spacing {
+      .#{$point}\:p-#{$space} {
+        padding: #{$value}em;
+      }
+      .#{$point}\:px-#{$space} {
+        @include spacing-inline(padding, #{$value}em);
+      }
+      .#{$point}\:py-#{$space} {
+        @include spacing-block(padding, #{$value}em);
+      }
+      .#{$point}\:pb-#{$space} {
+        @include spacing-bottom(padding, #{$value}em);
+      }
+      .#{$point}\:pl-#{$space} {
+        @include spacing-left(padding, #{$value}em);
+      }
+      .#{$point}\:pr-#{$space} {
+        @include spacing-right(padding, #{$value}em);
+      }
+      .#{$point}\:pt-#{$space} {
+        @include spacing-top(padding, #{$value}em);
+      }
+    }
+  }
+}

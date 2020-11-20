@@ -1,0 +1,43 @@
+$placeContentOptions: (
+  start: start,
+  end: end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+$placeItemsAndSelfOptions: (auto, start, end, center, stretch);
+
+@each $opt, $val in $placeContentOptions {
+  .place-#{$opt} {
+    place-content: $val;
+  }
+}
+
+@each $opt in $placeItemsAndSelfOptions {
+  .place-items-#{$opt} {
+    place-items: $opt;
+  }
+  .place-self-#{$opt} {
+    place-self: $opt;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $opt, $val in $placeContentOptions {
+      .#{$point}\:place-#{$opt} {
+        place-content: $val;
+      }
+    }
+    @each $opt in $placeItemsAndSelfOptions {
+      .#{$point}\:place-items-#{$opt} {
+        place-items: $opt;
+      }
+      .#{$point}\:place-self-#{$opt} {
+        place-self: $opt;
+      }
+    }
+  }
+}

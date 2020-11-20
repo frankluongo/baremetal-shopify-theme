@@ -1,0 +1,29 @@
+$overflows: (auto, hidden, visible, scroll);
+
+@each $overflow in $overflows {
+  .overflow-#{$overflow} {
+    overflow: $overflow;
+  }
+  .overflow-x-#{$overflow} {
+    overflow-x: $overflow;
+  }
+  .overflow-y-#{$overflow} {
+    overflow-y: $overflow;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $overflow in $overflows {
+      .#{$point}\:overflow-#{$overflow} {
+        overflow: $overflow;
+      }
+      .#{$point}\:overflow-x-#{$overflow} {
+        overflow-x: $overflow;
+      }
+      .#{$point}\:overflow-y-#{$overflow} {
+        overflow-y: $overflow;
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+$flexWraps: (wrap, wrap-reverse, nowrap);
+
+@each $wrap in $flexWraps {
+  .flex-#{$wrap} {
+    flex-wrap: $wrap;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $wrap in $flexWraps {
+      .#{$point}\:flex-#{$wrap} {
+        flex-wrap: $wrap;
+      }
+    }
+  }
+}

@@ -1,91 +1,57 @@
-<section class="container content p-bottom-6 p-top-6">
-  <header>
-    <h1 class="h2">Account Details</h1>
-    <hr class="m-top-1">
-  </header>
-  <section class="m-top-3">
-    <section class="account__details grid gap" data-cols="2/1">
-      <div class="account-details__orders">
-        <h2 class="h3 m-bottom-1">{{ 'customer.orders.title' | t }}</h2>
-        {% paginate customer.orders by 20 %}
-        {% if customer.orders.size != 0 %}
-          <div class="table-outer">
-            <div class="table-inner">
-              <table class="full">
-                <thead>
-                  <tr class="heading">
-                    <th>{{ 'customer.orders.order_number' | t }}</th>
-                    <th>{{ 'customer.orders.date' | t }}</th>
-                    <th>{{ 'customer.orders.payment_status' | t }}</th>
-                    <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
-                    <th>{{ 'customer.orders.total' | t }}</th>
+<section class="container xs:py-3 md:py-6">
+  {% render 'customerHeader', heading: 'customer.account.title' %}
+  <section class="dgrid xs:gap-1 md:gap-2 xs:grid-cols-1 md:grid-cols-4">
+    <div class="md:col-span-3">
+      <h2 class="h3 xs:mb-1">{{ 'customer.orders.title' | t }}</h2>
+      {% paginate customer.orders by 20 %}
+      {% if customer.orders.size != 0 %}
+        <div class="table-outer">
+          <div class="table-inner">
+            <table>
+              <thead>
+                <tr class="heading">
+                  <th>{{ 'customer.orders.order_number' | t }}</th>
+                  <th>{{ 'customer.orders.date' | t }}</th>
+                  <th>{{ 'customer.orders.payment_status' | t }}</th>
+                  <th>{{ 'customer.orders.fulfillment_status' | t }}</th>
+                  <th>{{ 'customer.orders.total' | t }}</th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in customer.orders %}
+                  <tr class="responsive-table-row">
+                    <td data-label="{{ 'customer.orders.order_number' | t }}">
+                      <a class="link" href="{{ order.customer_url }}">
+                        {{ order.name }}
+                      </a>
+                    </td>
+                    <td data-label="{{ 'customer.orders.date' | t }}">{{ order.created_at | date: '%B %d, %Y' }}</td>
+                    <td data-label="{{ 'customer.orders.payment_status' | t }}">{{ order.financial_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.fulfillment_status' | t }}">{{ order.fulfillment_status_label }}</td>
+                    <td data-label="{{ 'customer.orders.total' | t }}">{{ order.total_price | money }}</td>
                   </tr>
-                </thead>
-                <tbody>
-                  {% for order in customer.orders %}
-                    <tr>
-                      <td>{{ order.name | link_to: order.customer_url }}</td>
-                      <td>{{ order.created_at | date: '%B %d, %Y' }}</td>
-                      <td>{{ order.financial_status_label }}</td>
-                      <td>{{ order.fulfillment_status_label }}</td>
-                      <td>{{ order.total_price | money }}</td>
-                    </tr>
-                  {% endfor %}
-                </tbody>
-              </table>
-            </div>
+                {% endfor %}
+              </tbody>
+            </table>
           </div>
-          {% else %}
-            <p>You have no orders!</p>
-          {% endif %}
-          {% if paginate.pages > 1 %}
-            <hr>
-            <div class="pagination">
-              {{ paginate | default_pagination | replace: '&laquo; Previous', '&larr;' | replace: 'Next &raquo;', '&rarr;' }}
-            </div>
-          {% endif %}
-        {% endpaginate %}
-      </div>
-      <aside class="account-details__address">
-        <h2 class="h3">{{ 'customer.account.details' | t }}</h2>
-        <div class="box">
-          <p>{{ customer.name }}</p>
-          {% if customer.default_address != nil %}
-            <p class="m-top-0">
-            {{ customer.default_address.address1 }}<br>
-
-            {% if customer.default_address.address2 != blank %}
-              {{ customer.default_address.address2 }}<br>
-            {% endif %}
-
-            {% if customer.default_address.city != blank %}
-              {{ customer.default_address.city }},
-            {% endif %}
-
-            {% if customer.default_address.province_code != blank %}
-              {{ customer.default_address.province_code | upcase }}
-            {% endif %}
-
-            {% if customer.default_address.zip != blank %}
-              {{ customer.default_address.zip | upcase }}<br>
-            {% endif %}
-
-            {% if customer.default_address.country != blank %}
-              {{ customer.default_address.country }}<br>
-            {% endif %}
-
-            {% if customer.default_address.phone != blank %}
-              {{ customer.default_address.phone }}
-            {% endif %}
-            </p>
-            <hr class="m-top-1 m-bottom-1">
-          {% endif %}
-          <p><a href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a></p>
         </div>
+      {% else %}
+        <p>{{ 'customer.orders.none' | t }}</p>
+      {% endif %}
 
+      {% if paginate.pages > 1 %}
+        {% include 'pagination' %}
+      {% endif %}
 
-
-      </aside>
-    </section>
+    {% endpaginate %}
+    </div>
+    <div class="md:col-span-1">
+      <h2 class="h3 mb-1">{{ 'customer.account.details' | t }}</h2>
+      <div class="box">
+        {{ customer.default_address | format_address }}
+        <hr class="my-1">
+        <a class="link" href="/account/addresses">{{ 'customer.account.view_addresses' | t }} ({{ customer.addresses_count }})</a>
+      </div>
+    </div>
   </section>
 </section>

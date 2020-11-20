@@ -1,30 +1,68 @@
-<section class="container--slim">
-  <header class="p-top-3">
-    <h1>Create Your Account</h1>
-    <hr class="m-top-2">
-  </header>
-  <div class="p-bottom-6 p-top-3">
-    {% form 'create_customer', class: 'form' %}
-      {{ form.errors | default_errors }}
-      <div class="form__block">
-        <label class="form__label" for="first_name">First Name</label>
-        <input class="form__input" type="text" value="" name="customer[first_name]" size="30" />
-      </div>
-      <div class="form__block">
-        <label class="form__label" for="last_name">Last Name</label>
-        <input class="form__input" type="text" value="" name="customer[last_name]" size="30" />
-      </div>
-      <div class="form__block">
-        <label class="form__label" for="email">Email Address</label>
-        <input class="form__input" type="email" value="" name="customer[email]" size="30" />
-      </div>
-      <div class="form__block">
-        <label class="form__label" for="password">Password</label>
-        <input class="form__input" type="password" value="" name="customer[password]" size="30" />
-      </div>
-      <div class="form__block">
-        <input class="form__submit" type="submit" value="Create" />
-      </div>
-    {% endform %}
+<section class="container container--slim xs:py-3 md:py-6">
+  {% render 'customerHeader', heading: 'customer.register.title' %}
+  <div>
+    {% form 'create_customer' %}
+    {{ form.errors | default_errors }}
+    <div class="form__block">
+      <label class="form__label" for="FirstName">
+        {{ 'customer.register.first_name' | t }}
+      </label>
+      <input
+        type="text"
+        class="form__input"
+        name="customer[first_name]"
+        id="FirstName"
+        placeholder="{{ 'customer.register.first_name' | t }}"
+        autofocus
+        {% if form.first_name %}value="{{ form.first_name }}"{% endif %}
+      >
+    </div>
+    <div class="form__block">
+      <label for="LastName" class="form__label">
+        {{ 'customer.register.last_name' | t }}
+      </label>
+      <input
+        type="text"
+        class="form__input"
+        name="customer[last_name]"
+        id="LastName"
+        placeholder="{{ 'customer.register.last_name' | t }}"
+        {% if form.last_name %}value="{{ form.last_name }}"{% endif %}
+      >
+    </div>
+    <div class="form__block">
+      <label for="Email" class="form__label">
+        {{ 'customer.register.email' | t }}
+      </label>
+      <input type="email"
+        name="customer[email]"
+        id="Email"
+        class="{% if form.errors contains 'email' %}form__input--error{% endif %} form__input"
+        placeholder="{{ 'customer.register.email' | t }}"
+        value="{% if form.email %}{{ form.email }}{% endif %}"
+        spellcheck="false"
+        autocomplete="off"
+        autocapitalize="off">
+    </div>
+    <div class="form__block">
+      <label for="CreatePassword" class="form__label">
+        {{ 'customer.register.password' | t }}
+      </label>
+      <input
+        type="password"
+        name="customer[password]"
+        id="CreatePassword"
+        class="{% if form.errors contains 'password' %}form__input--error{% endif %} form__input"
+        placeholder="{{ 'customer.register.password' | t }}"
+      >
+    </div>
+    <div class="form__block">
+      <input type="submit" value="{{ 'customer.register.submit' | t }}" class="button">
+    </div>
+    <div class="form__block text-align--center">
+      <hr class="xs:my-1">
+      <a class="link" href="{{ shop.url }}">{{ 'customer.register.cancel' | t }}</a>
+    </div>
+  {% endform %}
   </div>
 </section>

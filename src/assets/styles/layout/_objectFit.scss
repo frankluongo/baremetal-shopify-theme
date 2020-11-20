@@ -1,0 +1,17 @@
+$fits: (contain, cover, fill, none, scale-down);
+
+@each $fit in $fits {
+  .obj-#{$fit} {
+    object-fit: $fit;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $fit in $fits {
+      .#{$point}\:obj-#{$fit} {
+        object-fit: $fit;
+      }
+    }
+  }
+}

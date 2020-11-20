@@ -1,0 +1,17 @@
+$grows: (0, 1);
+
+@each $grow in $grows {
+  .flex-grow-#{$grow} {
+    flex-grow: $grow;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $grow in $grows {
+      .#{$point}\:flex-grow-#{$grow} {
+        flex-grow: $grow;
+      }
+    }
+  }
+}

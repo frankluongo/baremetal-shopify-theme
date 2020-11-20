@@ -1,0 +1,51 @@
+@each $space, $value in $spacing {
+  .m-#{$space} {
+    margin: #{$value}em;
+  }
+  .mx-#{$space} {
+    @include spacing-inline(margin, #{$value}em);
+  }
+  .my-#{$space} {
+    @include spacing-block(margin, #{$value}em);
+  }
+  .mb-#{$space} {
+    @include spacing-bottom(margin, #{$value}em);
+  }
+  .ml-#{$space} {
+    @include spacing-left(margin, #{$value}em);
+  }
+  .mr-#{$space} {
+    @include spacing-right(margin, #{$value}em);
+  }
+  .mt-#{$space} {
+    @include spacing-top(margin, #{$value}em);
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $space, $value in $spacing {
+      .#{$point}\:m-#{$space} {
+        margin: #{$value}em;
+      }
+      .#{$point}\:mx-#{$space} {
+        @include spacing-inline(margin, #{$value}em);
+      }
+      .#{$point}\:my-#{$space} {
+        @include spacing-block(margin, #{$value}em);
+      }
+      .#{$point}\:mb-#{$space} {
+        @include spacing-bottom(margin, #{$value}em);
+      }
+      .#{$point}\:ml-#{$space} {
+        @include spacing-left(margin, #{$value}em);
+      }
+      .#{$point}\:mr-#{$space} {
+        @include spacing-right(margin, #{$value}em);
+      }
+      .#{$point}\:mt-#{$space} {
+        @include spacing-top(margin, #{$value}em);
+      }
+    }
+  }
+}

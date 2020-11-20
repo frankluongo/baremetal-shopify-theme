@@ -1,0 +1,27 @@
+@each $space, $value in $spacing {
+  .gap-#{$space} {
+    gap: #{$value}em;
+  }
+  .gap-x-#{$space} {
+    column-gap: #{$value}em;
+  }
+  .gap-y-#{$space} {
+    row-gap: #{$value}em;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $space, $value in $spacing {
+      .#{$point}\:gap-#{$space} {
+        gap: #{$value}em;
+      }
+      .#{$point}\:gap-x-#{$space} {
+        column-gap: #{$value}em;
+      }
+      .#{$point}\:gap-y-#{$space} {
+        row-gap: #{$value}em;
+      }
+    }
+  }
+}

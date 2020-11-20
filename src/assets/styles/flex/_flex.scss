@@ -1,0 +1,22 @@
+$flexes: (
+  1: 1 1 0%,
+  auto: 1 1 auto,
+  initial: 0 1 auto,
+  none: none,
+);
+
+@each $flex, $val in $flexes {
+  .flex-#{$flex} {
+    flex: $val;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $flex, $val in $flexes {
+      .#{$point}\:flex-#{$flex} {
+        flex: $val;
+      }
+    }
+  }
+}

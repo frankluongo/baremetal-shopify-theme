@@ -1,16 +1,20 @@
+.link {
+  color: var(--color-links-text);
+  font-weight: bold;
+  text-decoration: none;
+
+  @include transition;
+}
+
+.link:hover,
+.link:focus {
+  color: var(--color-white);
+
+  background-color: var(--color-links-text);
+}
+
 .content {
   a {
-    color: var(--color-links-text);
-    font-weight: bold;
-    text-decoration: none;
-
-    @include transition;
-  }
-
-  a:hover,
-  a:focus {
-    color: var(--color-white);
-
-    background-color: var(--color-links-text);
+    @extend .link;
   }
 }

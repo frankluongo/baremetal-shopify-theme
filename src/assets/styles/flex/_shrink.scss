@@ -1,0 +1,17 @@
+$shrinks: (0, 1);
+
+@each $shrink in $shrinks {
+  .flex-shrink-#{$shrink} {
+    flex-shrink: $shrink;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $shrink in $shrinks {
+      .#{$point}\:flex-shrink-#{$shrink} {
+        flex-shrink: $shrink;
+      }
+    }
+  }
+}

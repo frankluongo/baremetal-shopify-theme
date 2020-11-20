@@ -1,0 +1,17 @@
+$orderOptions: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12);
+
+@each $order in $orderOptions {
+  .order-#{$order} {
+    order: $order;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $order in $orderOptions {
+      .#{$point}\:order-#{$order} {
+        order: $order;
+      }
+    }
+  }
+}

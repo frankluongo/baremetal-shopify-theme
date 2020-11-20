@@ -1,0 +1,43 @@
+$alignContentOptions: (
+  start: flex-start,
+  end: flex-end,
+  center: center,
+  between: space-between,
+  around: space-around,
+  evenly: space-evenly,
+);
+
+$alignItemsAndSelfOptions: (auto, start, end, center, stretch);
+
+@each $opt, $val in $alignContentOptions {
+  .align-#{$opt} {
+    align-content: $val;
+  }
+}
+
+@each $opt in $alignItemsAndSelfOptions {
+  .align-items-#{$opt} {
+    align-items: $opt;
+  }
+  .align-self-#{$opt} {
+    align-self: $opt;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $opt, $val in $alignContentOptions {
+      .#{$point}\:align-#{$opt} {
+        align-content: $val;
+      }
+    }
+    @each $opt in $alignItemsAndSelfOptions {
+      .#{$point}\:align-items-#{$opt} {
+        align-items: $opt;
+      }
+      .#{$point}\:align-self-#{$opt} {
+        align-self: $opt;
+      }
+    }
+  }
+}

@@ -1,17 +1,31 @@
-{% for collection in collections %}
-  {% unless collection.handle == 'frontpage' %}
-    {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
-    <a href="{{ collection.url }}">More {{ collection_title }} &rsaquo;</a>
-    {% for product in collection.products limit:5 %}
-      {% assign grid_item_width = 'large--one-fifth medium--one-half' %}
-      <div>
-        <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-        {{ product.price | money }}
-        {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-        <a href="{{ product.url | within: collection }}">
-          <img src="{{ product.featured_image.src | img_url: 'large', format: 'pjpg'  }}" alt="{{ product.featured_image.alt | escape }}">
-        </a>
-      </div>
-    {% endfor %}
-  {% endunless %}
-{% endfor %}
+<section class="container xs:py-3 md:py-6">
+  {% for collection in collections %}
+    {% unless collection.handle == 'frontpage' %}
+      {% capture collection_title %}{{ collection.title | escape }}{% endcapture %}
+      <section class="xs:p-1 sm:p-2 md:p-3" id="{{ collection.handle }}">
+        <div class="dgrid xs:grid-cols-1 sm:grid-cols-2 md:grid-cols-4 xs:gap-1 justify-center">
+          {% for product in collection.products limit:4 %}
+              <a
+                class="link xs:col-span-1 box"
+                href="{{ product.url | within: collection }}"
+              >
+                <img src="{{ product.featured_image.src | img_url: 'large', format: 'pjpg'  }}" alt="{{ product.featured_image.alt | escape }}">
+                {{ product.title }}
+                <div class="h4 xs:mt-0.5">
+                  {{ product.price | money }}
+                </div>
+                {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
+              </a>
+          {% endfor %}
+        </div>
+        <div class="text-align--center">
+          <a class="link dinline-block text-align--center xs:mt-1" href="{{ collection.url }}">
+            More {{ collection_title | downcase | capitalize }} &rsaquo;
+          </a>
+        </div>
+      </section>
+    {% endunless %}
+  {% endfor %}
+</section>
+
+

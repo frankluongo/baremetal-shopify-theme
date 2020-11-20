@@ -1,0 +1,32 @@
+@each $opt, $val in $columnAndRowSpans {
+  .col-span-#{$opt} {
+    grid-column: $val;
+  }
+}
+
+@each $opt in $columnAndRowStartsAndEnds {
+  .col-start-#{$opt} {
+    grid-column-start: $opt;
+  }
+  .col-end-#{$opt} {
+    grid-column-end: $opt;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $opt, $val in $columnAndRowSpans {
+      .#{$point}\:col-span-#{$opt} {
+        grid-column: $val;
+      }
+    }
+    @each $opt in $columnAndRowStartsAndEnds {
+      .#{$point}\:col-start-#{$opt} {
+        grid-column-start: $opt;
+      }
+      .#{$point}\:col-end-#{$opt} {
+        grid-column-end: $opt;
+      }
+    }
+  }
+}

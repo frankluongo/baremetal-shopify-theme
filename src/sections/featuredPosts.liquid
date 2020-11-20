@@ -1,7 +1,8 @@
 {%- assign blog = blogs[section.settings.blog] -%}
 {%- assign limit = section.settings.postLimit -%}
 
-<section class="container featured-posts__container featured-posts__container--header-{{ section.settings.headerPosition }}">
+<section
+  class="container featured-posts__container featured-posts__container--header-{{ section.settings.headerPosition }} dflex flex-wrap">
   <header
     class="featured-posts__header {% if section.settings.showRule %} featured-posts__header--has-rule {% endif %}"
   >
@@ -19,7 +20,7 @@
       {% endif %}
     </div>
   </header>
-  <section class="featured-posts__posts">
+  <section class="featured-posts__posts dgrid xs:gap-1 xs:grid-cols-3 md:grid-cols-3">
     {% unless blog.articles.size == 0 %}
       {% for article in blog.articles limit: limit %}
           <a class="featured-posts__post" id="article-{{ article.id }}" href="{{ article.url }}">

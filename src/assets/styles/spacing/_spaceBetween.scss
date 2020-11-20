@@ -1,0 +1,21 @@
+@each $space, $value in $spacing {
+  .space-x-#{$space} > * + * {
+    @include spacing-left(margin, #{$value}em);
+  }
+  .space-y-#{$space} > * + * {
+    @include spacing-top(margin, #{$value}em);
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $space, $value in $spacing {
+      .#{$point}\:space-x-#{$space} > * + * {
+        @include spacing-left(margin, #{$value}em);
+      }
+      .#{$point}\:space-y-#{$space} > * + * {
+        @include spacing-top(margin, #{$value}em);
+      }
+    }
+  }
+}

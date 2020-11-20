@@ -1,0 +1,17 @@
+$floats: (left, right, none);
+
+@each $float in $floats {
+  .#{$float} {
+    float: $float;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $float in $floats {
+      .#{$point}\:#{$float} {
+        float: $float;
+      }
+    }
+  }
+}

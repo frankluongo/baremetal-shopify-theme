@@ -1,0 +1,29 @@
+$overscrolls: (auto, contain, none);
+
+@each $overscroll in $overscrolls {
+  .overscroll-#{$overscroll} {
+    overscroll-behavior: $overscroll;
+  }
+  .overscroll-x-#{$overscroll} {
+    overscroll-behavior-x: $overscroll;
+  }
+  .overscroll-y-#{$overscroll} {
+    overscroll-behavior-y: $overscroll;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $overscroll in $overscrolls {
+      .#{$point}\:overscroll-#{$overscroll} {
+        overscroll-behavior: $overscroll;
+      }
+      .#{$point}\:overscroll-x-#{$overscroll} {
+        overscroll-behavior-x: $overscroll;
+      }
+      .#{$point}\:overscroll-y-#{$overscroll} {
+        overscroll-behavior-y: $overscroll;
+      }
+    }
+  }
+}

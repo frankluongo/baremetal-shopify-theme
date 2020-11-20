@@ -1,6 +1,6 @@
 .container {
-  @include inline-spacing(margin, auto);
-  @include inline-spacing(padding, 1rem);
+  @include spacing-inline(margin, auto);
+  @include spacing-inline(padding, 1rem);
   max-width: var(--max-width);
   width: 100%;
 }
@@ -8,4 +8,37 @@
 .container--slim {
   @extend .container;
   max-width: 60rem;
+}
+
+.grid {
+  display: grid;
+}
+
+.grid.gap {
+  gap: 1rem;
+}
+
+.grid.gap > * + * {
+  margin-top: 0;
+}
+
+.flex {
+  display: flex;
+}
+
+.grid * + *,
+.flex * + * {
+  margin-bottom: 0;
+}
+
+@include media(768px) {
+  .grid[data-cols="2/1"] {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@include media(1280px) {
+  .grid.gap {
+    gap: 2rem;
+  }
 }

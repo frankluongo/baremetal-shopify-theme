@@ -7,3 +7,6 @@
   {{ 'cart.css' | asset_url | stylesheet_tag }}
   {{ 'cart.js' | asset_url | script_tag }}
 {% endif %}
+{% if template == 'customers/login' %}
+  {{ 'login.js' | asset_url | script_tag }}
+{% endif %}

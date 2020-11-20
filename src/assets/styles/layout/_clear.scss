@@ -1,0 +1,17 @@
+$clears: (left, right, both, none);
+
+@each $clear in $clears {
+  .#{$clear} {
+    clear: $clear;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $clear in $clears {
+      .#{$point}\:#{$clear} {
+        clear: $clear;
+      }
+    }
+  }
+}

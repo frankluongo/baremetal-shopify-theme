@@ -1,8 +1,16 @@
+const purgecss = require('@fullhuman/postcss-purgecss')
+const postcssImport = require('postcss-import');
+const postcssPresetEnv = require('postcss-preset-env')
+const cssnano = require('cssnano')
+
 module.exports = {
   parser: "postcss-scss",
-  plugins: {
-    "postcss-import": {},
-    "postcss-preset-env": {},
-    cssnano: {},
-  },
+  plugins: [
+    postcssImport,
+    postcssPresetEnv,
+    cssnano,
+    // purgecss({
+    //   content: ['./src/**/*.liquid']
+    // })
+  ],
 };

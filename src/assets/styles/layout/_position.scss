@@ -1,0 +1,17 @@
+$positions: (static, fixed, absolute, relative, sticky);
+
+@each $position in $positions {
+  .d#{$position} {
+    position: $position;
+  }
+}
+
+@each $point, $value in $breakpoints {
+  @include media($value) {
+    @each $position in $positions {
+      .#{$point}\:p#{$position} {
+        position: $position;
+      }
+    }
+  }
+}
